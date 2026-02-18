@@ -182,7 +182,7 @@ const MODE_NORMAL = 1, MODE_ENDLESS = 2, MODE_PRACTICE = 3;
         _gameBBListIndex = 0,
         _gameOver = false,
         _gameStart = false,
-        _gameSettingNum=20,
+        _gameSettingNum=20.00,
         _gameTime, _gameTimeNum, _gameScore, _date1, deviationTime;
 
     let _gameStartTime, _gameStartDatetime;
@@ -285,7 +285,7 @@ const MODE_NORMAL = 1, MODE_ENDLESS = 2, MODE_PRACTICE = 3;
     }
 
     function SubmitResults() {
-        if ($("#username").val() && _gameSettingNum === 20) {
+        if ($("#username").val() && _gameSettingNum === 20.00) {
             let httpRequest = new XMLHttpRequest();
             httpRequest.open('POST', './SubmitResults.php', true);
             httpRequest.setRequestHeader("Content-type", "application/json");
