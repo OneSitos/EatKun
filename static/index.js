@@ -2,7 +2,7 @@ const MODE_NORMAL = 1, MODE_ENDLESS = 2, MODE_PRACTICE = 3;
 
 (function(w) {
     function getJsonI18N() {
-        // https://developer.mozilla.org/zh-CN/docs/Web/API/Navigator/language
+        // 详见 https://developer.mozilla.org/zh-CN/docs/Web/API/Navigator/language
         
         const LANGUAGES = [
             { regex: /^zh-CN\b/, lang: 'zh' },
@@ -93,7 +93,7 @@ const MODE_NORMAL = 1, MODE_ENDLESS = 2, MODE_PRACTICE = 3;
     }
 
     function getMode() {
-        //有cookie优先返回cookie记录的，没有再返回normal
+        //有 cookie 优先返回 cookie 记录的，没有再返回 normal
         return cookie('gameMode') ? parseInt(cookie('gameMode')) : MODE_NORMAL;
     }
 
@@ -260,7 +260,7 @@ const MODE_NORMAL = 1, MODE_ENDLESS = 2, MODE_PRACTICE = 3;
             GameTimeLayer.innerHTML = `SCORE:${_gameScore}`;
         }
     }
-    //使重试按钮获得焦点
+    // 使重试按钮获得焦点
     function foucusOnReplay(){
         $('#replay').focus()
     }
@@ -524,8 +524,10 @@ const MODE_NORMAL = 1, MODE_ENDLESS = 2, MODE_PRACTICE = 3;
     document.write(createGameLayer());
 
     function initSetting() {
-        $("#username0").val(cookie("username0") ? cookie("username0") : "");
-        $("#message0").val(cookie("message0") ? cookie("message0") : "");
+        $("#username").val(cookie("username") ? cookie("username") : "");
+        $("#message").val(cookie("message") ? cookie("message") : "");
+        $("#username0").val(cookie("username0") ? cookie("username0") : ""); // 假的 username，不会上传数据
+        $("#message0").val(cookie("message0") ? cookie("message0") : ""); // 假的 message，不会上传数据
         if (cookie("title")) {
             $('title').text(cookie('title'));
             $('#title').val(cookie('title'));
@@ -559,7 +561,7 @@ const MODE_NORMAL = 1, MODE_ENDLESS = 2, MODE_PRACTICE = 3;
     }
 
     w.save_cookie = function() {
-        const settings = ['username0', 'message0', 'keyboard', 'title', 'gameTime'];
+        const settings = ['username', 'message', 'username0', 'message0', 'keyboard', 'title', 'gameTime'];
         for (let s of settings) {
             let value=$(`#${s}`).val();
             if(value){
@@ -580,22 +582,22 @@ const MODE_NORMAL = 1, MODE_ENDLESS = 2, MODE_PRACTICE = 3;
         if (!isnull(name)) {
             link += "?name=" + name;
         }
-        openWebpage(link);
+        window.location.href = link;
     }
 
-    w.goRankTwo = function() {
+    w.goRankTwo = function() { // 假的排行榜
         let name = $("#username0").val();
         let link = './rank.html';
         if (!isnull(name)) {
             link += "?name=" + name;
         }
-        openWebpage(link);
+        window.location.href = link;
     }
 
-    w.openWebpage = function(url) { // 使用了 https://github.com/Webpage-gh/eatcat 的代码
-        let confirmation = confirm("您确定要跳转到其他网页吗？"); // Display the confirmation prompt
+    w.openWebpage = function(link) { // 使用了 https://github.com/Webpage-gh/eatcat 的代码，这段代码使用 https://raw.githubusercontent.com/OneSitos/EatKun/refs/heads/main/files/license/github.Webpage-gh.eatcat_LICENSE.txt 进行授权
+        let confirmation = confirm("确定要跳转到其他网页吗？"); // Display the confirmation prompt
         if (confirmation) {
-            window.location.href = url; // If the user confirms, proceed with the URL redirection
+            window.location.href = link; // If the user confirms, proceed with the URL redirection
         }
     }
 
