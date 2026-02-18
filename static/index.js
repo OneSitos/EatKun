@@ -236,7 +236,7 @@ const MODE_NORMAL = 1, MODE_ENDLESS = 2, MODE_PRACTICE = 3;
     function timer() {
         _gameTimeNum--;
         _gameStartTime++;
-        if (mode === MODE_NORMAL && _gameTimeNum <= 0) {
+        if (mode === MODE_NORMAL && _gameTimeNum <= 0.00) {
             GameTimeLayer.innerHTML = I18N['time-up'] + '!';
             gameOver();
             GameLayerBG.className += ' flash';
@@ -297,7 +297,7 @@ const MODE_NORMAL = 1, MODE_ENDLESS = 2, MODE_PRACTICE = 3;
     }
 
     function createTimeText(n) {
-        return 'TIME:' + (Math.ceil(n * 100) / 100).toFixed(2);
+        return 'TIME:' + Math.ceil(n);
     }
 
     let _ttreg = / t{1,2}(\d+)/,
