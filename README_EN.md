@@ -20,7 +20,7 @@ Latest version: 0.0.3f1
 |
 [Github](https://github.com/EatKun)
 |
-[Wiki](https://github.com/OneSitos/EatKun.wiki)
+[Wiki](https://github.com/OneSitos/EatKun/wiki)
 |
 [Play](https://chicxk.pages.dev/)
 |
@@ -137,4 +137,4 @@ Follow these few steps to configure the database for ranking list on your server
 
 This project is authorized by **[MIT License](https://raw.githubusercontent.com/OneSitos/EatKun/refs/heads/main/LICENSE-code)**. When using this project, please indicate the source/original author.
 
-`README.md` / `README_EN.md` and this [Wiki](https://github.com/OneSitos/EatKun.wiki) of this project are authorized to **use [Creative Commons Attribution 4.0 International Public License](https://raw.githubusercontent.com/OneSitos/EatKun/refs/heads/main/LICENSE-text)**. When using these texts, please indicate the source.
+`README.md` / `README_EN.md` and this [Wiki](https://github.com/OneSitos/EatKun/wiki) of this project are authorized to **use [Creative Commons Attribution 4.0 International Public License](https://raw.githubusercontent.com/OneSitos/EatKun/refs/heads/main/LICENSE-text)**. When using these texts, please indicate the source.

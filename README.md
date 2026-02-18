@@ -20,7 +20,7 @@ _🦌 网页小游戏 🥛_
 |
 [Github](https://github.com/EatKun)
 |
-[Wiki](https://github.com/OneSitos/EatKun.wiki)
+[Wiki](https://github.com/OneSitos/EatKun/wiki)
 |
 [游玩](https://chicxk.pages.dev/)
 |
@@ -136,6 +136,6 @@ _🦌 网页小游戏 🥛_
 
 ## 其它事项
 
-这个项目使用 **[MIT License](https://raw.githubusercontent.com/OneSitos/EatKun/refs/heads/main/LICENSE-code)** 进行授权，在使用本项目时，请标注来源/原作者。
+本项目使用 **[MIT License](https://raw.githubusercontent.com/OneSitos/EatKun/refs/heads/main/LICENSE-code)** 进行授权，在使用本项目时，请标注来源/原作者。
 
-`README.md`、`README_EN.md`和本项目 [Wiki](https://github.com/OneSitos/EatKun.wiki) **使用 [Creative Commons Attribution 4.0 International Public License](https://raw.githubusercontent.com/OneSitos/EatKun/refs/heads/main/LICENSE-text)** 进行授权，在使用这些文本时，请标注来源。
+`README.md`、`README_EN.md`和本项目 [Wiki](https://github.com/OneSitos/EatKun/wiki) **使用 [Creative Commons Attribution 4.0 International Public License](https://raw.githubusercontent.com/OneSitos/EatKun/refs/heads/main/LICENSE-text)** 进行授权，在使用这些文本时，请标注来源。
