@@ -20,6 +20,8 @@ Latest version: 0.0.3f1
 |
 [Github](https://github.com/EatKun)
 |
+[Wiki](https://github.com/OneSitos/EatKun.wiki)
+|
 [Play](https://chicxk.pages.dev/)
 |
 [Latest Build](https://OneSitos.github.io/EatKun/index.html)
@@ -41,7 +43,7 @@ You can delete all the sql/php files if you don't need them.
 
 This game has no association with 蔡徐坤 or his management team and is for entertainment purposes only.
 
-The content of `static/image` and `static/music` comes from the [爱给网](https://www.aigei.com/s?q=%E8%94%A1%E5%BE%90%E5%9D%A4&type=sound). If there is infringement, it can be found in [Issues](https://github.com/EatKun/EatKun/issues) Contact to delete and attach the 'delete' tag.
+The content of `static/image` and `static/music` comes from the [爱给网](https://www.aigei.com/s?q=%E8%94%A1%E5%BE%90%E5%9D%A4&type=sound). If there is infringement, it can be found in [Issues](https://github.com/OneSitos/EatKun/issues) Contact to delete and attach the 'delete' tag.
 
 ## Usage
 
@@ -59,7 +61,7 @@ Follow these steps to change the text displayed to what you want.
 
    ```json
    {
-     "game-title": "New concept audio game (Let 蔡徐坤's English name be KUN.)",
+     "game-title": "New concept audio game",
      "game-intro1": "Start at the bottom and",
      "game-intro2": "see how many points you can get",
      "game-intro3": "OK!",
@@ -129,10 +131,10 @@ Follow these few steps to configure the database for ranking list on your server
 
 ## Star statistics
 
-[![Stargazers over time](https://starchart.cc/OneSitos/EatKun.svg?variant=adaptive)](https://starchart.cc/EatKun/EatKun)
+[![Stargazers over time](https://starchart.cc/OneSitos/EatKun.svg?variant=adaptive)](https://starchart.cc/OneSitos/EatKun)
 
 ## Others
 
-This project is authorized by [MIT License](https://raw.githubusercontent.com/OneSitos/EatKun/refs/heads/main/LICENSE-code). When using this project, please indicate the source/original author.
+This project is authorized by **[MIT License](https://raw.githubusercontent.com/OneSitos/EatKun/refs/heads/main/LICENSE-code)**. When using this project, please indicate the source/original author.
 
-`README.md` / `README_EN.md` and the [Wiki](https://github.com/OneSitos/EatKun/wiki) of this project (currently unavailable, may exist in the future) are authorized to use [Creative Commons Attribution 4.0 International Public License](https://raw.githubusercontent.com/OneSitos/EatKun/refs/heads/main/LICENSE-text). When using this project, please indicate the source/original author.
+`README.md` / `README_EN.md` and this [Wiki](https://github.com/OneSitos/EatKun.wiki) of this project are authorized to **use [Creative Commons Attribution 4.0 International Public License](https://raw.githubusercontent.com/OneSitos/EatKun/refs/heads/main/LICENSE-text)**. When using these texts, please indicate the source.

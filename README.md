@@ -20,6 +20,8 @@ _🦌 网页小游戏 🥛_
 |
 [Github](https://github.com/EatKun)
 |
+[Wiki](https://github.com/OneSitos/EatKun.wiki)
+|
 [游玩](https://chicxk.pages.dev/)
 |
 [最新 Build](https://OneSitos.github.io/EatKun/index.html)
@@ -41,7 +43,7 @@ _🦌 网页小游戏 🥛_
 
 本游戏与蔡徐坤本人及其经纪团队无任何关联，仅供娱乐。
 
-`static/image`、`static/music`内容来自[爱给网](https://www.aigei.com/s?q=%E8%94%A1%E5%BE%90%E5%9D%A4&type=sound)，若侵权可在 [Issues](https://github.com/EatKun/EatKun/issues) 联系删除，并附上`delete`标签。
+`static/image`、`static/music`内容来自[爱给网](https://www.aigei.com/s?q=%E8%94%A1%E5%BE%90%E5%9D%A4&type=sound)，若侵权可在 [Issues](https://github.com/OneSitos/EatKun/issues) 联系删除，并附上`delete`标签。
 
 ## 使用方法
 
@@ -78,11 +80,11 @@ _🦌 网页小游戏 🥛_
 
 3. 找到`static/image`文件夹，点击前显示的图片是`ClickBefore.png`, 点击后的图片是`ClickAfter.png`，把他们改成你想要的即可。
 
-   **注意文件格式, 需要是png**
+   **注意文件格式，需要是png**
 
 4. 找到`static/music`文件夹，点击时的音效是`tap.mp3`，正常结束的音效是`end.mp3`，点击错误的音效是`err.mp3`，把他们改成你想要的即可。
 
-   **注意文件格式, 需要是mp3**
+   **注意文件格式，需要是mp3**
 
 5. 更改完毕后前往项目的`Settings` -> `Pages` -> `Source`，选择`main` 分支然后点击`Save`。
 
@@ -134,6 +136,6 @@ _🦌 网页小游戏 🥛_
 
 ## 其它事项
 
-此项目使用 [MIT License](https://raw.githubusercontent.com/OneSitos/EatKun/refs/heads/main/LICENSE-code) 进行授权，在使用本项目时，请标注来源/原作者。
+这个项目使用 **[MIT License](https://raw.githubusercontent.com/OneSitos/EatKun/refs/heads/main/LICENSE-code)** 进行授权，在使用本项目时，请标注来源/原作者。
 
-`README.md`、`README_EN.md`和本项目 [Wiki](https://github.com/OneSitos/EatKun/wiki)（现在没有，未来可能会有）使用 [Creative Commons Attribution 4.0 International Public License](https://raw.githubusercontent.com/OneSitos/EatKun/refs/heads/main/LICENSE-text) 进行授权，在使用本项目时，请标注来源/原作者。
+`README.md`、`README_EN.md`和本项目 [Wiki](https://github.com/OneSitos/EatKun.wiki) **使用 [Creative Commons Attribution 4.0 International Public License](https://raw.githubusercontent.com/OneSitos/EatKun/refs/heads/main/LICENSE-text)** 进行授权，在使用这些文本时，请标注来源。
