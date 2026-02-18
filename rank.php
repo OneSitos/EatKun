@@ -78,7 +78,7 @@ if ($RankingType == 'all') {
             <a class="nav-link <?php echo $RankingType == 'all' ? "active" : ""; ?>" href="?type=all"><?php echo $i18n['all-ranking']; ?></a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="https://github.com/fgfobdpqjs/EatKun/"><?php echo $i18n['source-code']; ?></a>
+            <a class="nav-link" href="https://github.com/OneSitos/EatKun"><?php echo $i18n['source-code']; ?></a>
           </li>
         </ul>
         <form class="d-flex text-nowrap" action="" onsubmit="return func()">
