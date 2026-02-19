@@ -504,10 +504,6 @@ const MODE_NORMAL = 1, MODE_ENDLESS = 2, MODE_PRACTICE = 3;
                     let date = new Date();
                     date.setTime(date.getTime() + 864e5 * time), time = date.toGMTString();
                 }
-                if (value === "") {
-                    value = "";
-                    time = "Thu, 01 Jan 1970 00:00:00 GMT";
-                } // 如果值为空字符串，设置过期时间使其删除
                 return document.cookie = name + "=" + escape(toStr(value)) + (time ? "; expires=" + time + (arguments[3] ?
                     "; domain=" + arguments[3] + (arguments[4] ? "; path=" + arguments[4] + (arguments[5] ? "; secure" : "") : "") :
                     "") : ""), !0;
@@ -565,8 +561,7 @@ const MODE_NORMAL = 1, MODE_ENDLESS = 2, MODE_PRACTICE = 3;
         const settings = ['username', 'message', 'username0', 'message0', 'keyboard', 'title', 'gameTime'];
         for (let s of settings) {
             let value=$(`#${s}`).val();
-            if(value){
-                cookie(s, value.toString(), 365);
+            cookie(s, value.toString(), 365);
             }
         }
         initSetting();
@@ -595,7 +590,7 @@ const MODE_NORMAL = 1, MODE_ENDLESS = 2, MODE_PRACTICE = 3;
         window.location.href = link;
     }
 
-    w.openWebpage = function(link) { // 使用了 https://github.com/Webpage-gh/eatcat 的代码，w.openWebpage 代码使用 https://raw.githubusercontent.com/OneSitos/EatKun/refs/heads/main/files/license/github.Webpage-gh.eatcat_LICENSE.txt 进行授权
+    w.openWebpage = function(link) { // 使用了 https://github.com/Webpage-gh/eatcat 的代码，openWebpage 代码使用 https://raw.githubusercontent.com/OneSitos/EatKun/refs/heads/main/files/license/github.Webpage-gh.eatcat_LICENSE.txt 进行授权
         const confirmText = I18N && I18N['confirm-redirect'] ? I18N['confirm-redirect'] : "CONFIRM-REDIRECT-I18N"; // Display the confirmation prompt
         if (confirmation) {
             window.location.href = link; // If the user confirms, proceed with the URL redirection
