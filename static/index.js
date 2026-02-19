@@ -123,7 +123,6 @@ const MODE_NORMAL = 1, MODE_ENDLESS = 2, MODE_PRACTICE = 3;
 
     w.readyBtn = function() {
         closeWelcomeLayer();
-        updatePanel();
     }
 
     w.winOpen = function() {
@@ -500,11 +499,15 @@ const MODE_NORMAL = 1, MODE_ENDLESS = 2, MODE_PRACTICE = 3;
 
     function cookie(name, value, time) {
         if (name) {
-            if (value) {
+            if (value !== undefined) {
                 if (time) {
                     let date = new Date();
                     date.setTime(date.getTime() + 864e5 * time), time = date.toGMTString();
                 }
+                if (value === "") {
+                    value = "";
+                    time = "Thu, 01 Jan 1970 00:00:00 GMT";
+                } // 如果值为空字符串，设置过期时间使其删除
                 return document.cookie = name + "=" + escape(toStr(value)) + (time ? "; expires=" + time + (arguments[3] ?
                     "; domain=" + arguments[3] + (arguments[4] ? "; path=" + arguments[4] + (arguments[5] ? "; secure" : "") : "") :
                     "") : ""), !0;
@@ -561,19 +564,10 @@ const MODE_NORMAL = 1, MODE_ENDLESS = 2, MODE_PRACTICE = 3;
     w.save_cookie = function() {
         const settings = ['username', 'message', 'username0', 'message0', 'keyboard', 'title', 'gameTime'];
         for (let s of settings) {
-            let inputElement = $(`#${s}`);
-            let value = inputElement.val();
-            let trimmedValue = value ? value.toString().trim() : '';
-            inputElement.val(''); 
-            if (trimmedValue) {
-                cookie(s, trimmedValue, 365242); // 保存非空值约1000年
-            } else {
-                cookie(s, '', -1);
+            let value=$(`#${s}`).val();
+            if(value){
+                cookie(s, value.toString(), 365);
             }
-        }
-        let newTitle = $('#title').val();
-        if (newTitle) {
-            $('title').text(newTitle);
         }
         initSetting();
     }
