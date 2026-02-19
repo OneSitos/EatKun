@@ -122,6 +122,7 @@ const MODE_NORMAL = 1, MODE_ENDLESS = 2, MODE_PRACTICE = 3;
     }
 
     w.readyBtn = function() {
+        initSetting();
         closeWelcomeLayer();
         updatePanel();
     }
@@ -561,12 +562,21 @@ const MODE_NORMAL = 1, MODE_ENDLESS = 2, MODE_PRACTICE = 3;
     w.save_cookie = function() {
         const settings = ['username', 'message', 'username0', 'message0', 'keyboard', 'title', 'gameTime'];
         for (let s of settings) {
-            let value=$(`#${s}`).val();
-            if(value){
-                cookie(s, value.toString(), 100);
+            let inputElement = $(`#${s}`);
+            let value = inputElement.val();
+            let trimmedValue = value ? value.toString().trim() : '';
+            inputElement.val(''); 
+            if (trimmedValue) {
+                cookie(s, trimmedValue, 365242); // 保存非空值
+            } else {
+                cookie(s, '', -1);
             }
         }
-        initSetting();
+        let newTitle = $('#title').val();
+        if (newTitle) {
+            $('title').text(newTitle);
+        }
+        // initSetting();
     }
 
     function isnull(val) {
