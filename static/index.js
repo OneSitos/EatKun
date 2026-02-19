@@ -122,7 +122,6 @@ const MODE_NORMAL = 1, MODE_ENDLESS = 2, MODE_PRACTICE = 3;
     }
 
     w.readyBtn = function() {
-        initSetting();
         closeWelcomeLayer();
         updatePanel();
     }
@@ -567,7 +566,7 @@ const MODE_NORMAL = 1, MODE_ENDLESS = 2, MODE_PRACTICE = 3;
             let trimmedValue = value ? value.toString().trim() : '';
             inputElement.val(''); 
             if (trimmedValue) {
-                cookie(s, trimmedValue, 365242); // 保存非空值
+                cookie(s, trimmedValue, 365242); // 保存非空值约1000年
             } else {
                 cookie(s, '', -1);
             }
@@ -576,7 +575,7 @@ const MODE_NORMAL = 1, MODE_ENDLESS = 2, MODE_PRACTICE = 3;
         if (newTitle) {
             $('title').text(newTitle);
         }
-        // initSetting();
+        initSetting();
     }
 
     function isnull(val) {
