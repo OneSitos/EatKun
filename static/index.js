@@ -562,7 +562,6 @@ const MODE_NORMAL = 1, MODE_ENDLESS = 2, MODE_PRACTICE = 3;
         for (let s of settings) {
             let value=$(`#${s}`).val();
             cookie(s, value.toString(), 365);
-            }
         }
         initSetting();
     }
