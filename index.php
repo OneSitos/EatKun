@@ -62,7 +62,7 @@
                         <span data-i18n="game-intro4">GAME-INTRO4-I18N</span><br />
                     </div>
                     <div id="version" style="display: none;font-size:2.2em; color:#fff; line-height:1.5em;">
-                        <span data-i18n="version">VERSION-I18N</span><span>0.0.3f1</span><br />
+                        <span data-i18n="version">VERSION-I18N</span><span><a href="https://github.com/OneSitos/EatKun/tree/0.0.4">0.0.4</a></span><br />
                     </div>
                 </div>
                 <div id="btn_group" class="container text-nowrap">

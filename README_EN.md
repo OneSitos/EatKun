@@ -14,7 +14,7 @@ _🦌 Web Game 🥛_
 
 A web game: EatKun
 
-Latest version: [0.0.3f1](https://github.com/OneSitos/EatKun/tree/0.0.3f1)
+Latest version: [0.0.4](https://github.com/OneSitos/EatKun/tree/0.0.4)
 
 [简体中文](README.md)
 |
