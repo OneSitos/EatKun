@@ -3,22 +3,20 @@ const MODE_NORMAL = 1, MODE_ENDLESS = 2, MODE_PRACTICE = 3;
 (function(w) {
     function getJsonI18N() {
         // 详见 https://developer.mozilla.org/zh-CN/docs/Web/API/Navigator/language
-        
+
         const LANGUAGES = [
-            { regex: /^zh-CN\b/, lang: 'zh' },
-            { regex: /^zh-TW\b/, lang: 'zht' },
-            { regex: /^zh-HK\b/, lang: 'zht' },
-            { regex: /^zh-MO\b/, lang: 'zht' },
-            { regex: /^zh-cn\b/, lang: 'zh' },
-            { regex: /^zh-tw\b/, lang: 'zht' },
-            { regex: /^zh-hk\b/, lang: 'zht' },
-            { regex: /^zh-mo\b/, lang: 'zht' },
-            { regex: /^ja\b/, lang: 'ja' },
+            { regex: /^zh-TW\b/i, lang: 'zht' },
+            { regex: /^zh-HK\b/i, lang: 'zht' },
+            { regex: /^zh-MO\b/i, lang: 'zht' },
+            { regex: /^zh-Hans\b/i, lang: 'zh' },
+            { regex: /^zh-Hant\b/i, lang: 'zht' },
+            { regex: /^zh\b/i, lang: 'zh' },
+            { regex: /^ja\b/i, lang: 'ja' },
             { regex: /.*/, lang: 'en'}
         ]
 
         const lang = LANGUAGES.find(l => l.regex.test(navigator.language)).lang
-        
+
         return $.ajax({
             url: `./static/i18n/${lang}.json`,
             dataType: 'json',
@@ -594,8 +592,8 @@ const MODE_NORMAL = 1, MODE_ENDLESS = 2, MODE_PRACTICE = 3;
         window.location.href = link;
     }
 
-    w.openWebpage = function(link) { // 使用了 https://github.com/Webpage-gh/eatcat 的代码，这段代码使用 https://raw.githubusercontent.com/OneSitos/EatKun/refs/heads/main/files/license/github.Webpage-gh.eatcat_LICENSE.txt 进行授权
-        let confirmation = confirm("确定要跳转到其他网页吗？"); // Display the confirmation prompt
+    w.openWebpage = function(link) { // 使用了 https://github.com/Webpage-gh/eatcat 的代码，w.openWebpage 代码使用 https://raw.githubusercontent.com/OneSitos/EatKun/refs/heads/main/files/license/github.Webpage-gh.eatcat_LICENSE.txt 进行授权
+        const confirmText = I18N && I18N['confirm-redirect'] ? I18N['confirm-redirect'] : "CONFIRM-REDIRECT-I18N"; // Display the confirmation prompt
         if (confirmation) {
             window.location.href = link; // If the user confirms, proceed with the URL redirection
         }
