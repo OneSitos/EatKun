@@ -561,7 +561,11 @@ const MODE_NORMAL = 1, MODE_ENDLESS = 2, MODE_PRACTICE = 3;
         const settings = ['username', 'message', 'username0', 'message0', 'keyboard', 'title', 'gameTime'];
         for (let s of settings) {
             let value=$(`#${s}`).val();
-            cookie(s, value.toString(), 365);
+            if (value) {
+                cookie(s, value, 365);
+            } else {
+                cookie(s, '', -1);
+            }
         }
         initSetting();
     }
