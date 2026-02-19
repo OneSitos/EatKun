@@ -530,7 +530,6 @@ const MODE_NORMAL = 1, MODE_ENDLESS = 2, MODE_PRACTICE = 3;
             $('#title').val(cookie('title'));
         } else { // 无 cookie 直接用默认，不需要刷新
             $('title').text(I18N['eat-kun']);
-            $('#title').val(I18N['eat-kun']);
         }
         let keyboard = cookie('keyboard');
         if (keyboard) {
@@ -543,7 +542,6 @@ const MODE_NORMAL = 1, MODE_ENDLESS = 2, MODE_PRACTICE = 3;
             map[keyboard.charAt(3)] = 4;
         } else { // 无 cookie 直接用默认，不需要刷新
             keyboard = "dfjk";
-            $("#keyboard").val(keyboard);
             map = {}
             map['d'] = 1;
             map['f'] = 2;
@@ -556,7 +554,6 @@ const MODE_NORMAL = 1, MODE_ENDLESS = 2, MODE_PRACTICE = 3;
             gameRestart();
         } else { // 无 cookie 直接用默认，不需要刷新
             const defaultGameTime = "20";
-            $('#gameTime').val(defaultGameTime);
             _gameSettingNum = parseInt(defaultGameTime);
             gameRestart();
         }
