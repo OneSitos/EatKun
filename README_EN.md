@@ -14,9 +14,11 @@ _🦌 Web Game 🥛_
 
 A web game: EatKun
 
-Latest version: 0.0.3f1
+Latest version: [0.0.3f1](https://github.com/OneSitos/EatKun/tree/0.0.3f1)
 
-[Chinese](README.md)
+[简体中文](README.md)
+|
+[繁體中文](README_HANT.md)
 |
 [Github](https://github.com/EatKun)
 |
@@ -90,17 +92,15 @@ Follow these steps to change the text displayed to what you want.
 
 Follow these few steps to configure the database for ranking list on your server.
 
-1. Remove the 0 in username0 in `index.js`, remove the 0 in message0, remove the 0 in username0 in `index.php`, and remove the 0 in message0.
+1. Create your own database and execute the script provided(e.g. use `kun` as database name):
 
-2. Create your own database and execute the script provided(e.g. use `kun` as database name):
-   
    ```sql
    CREATE DATABASE kun DEFAULT CHARSET=utf8;
    USE kun;
    SOURCE kun.sql;
    ```
-   
-3. Change the code in `conn.php`, which contains your database info, and its content is here:
+
+2. Change the code in `conn.php`, which contains your database info, and its content is here:
 
    ```php
    <?php

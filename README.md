@@ -14,9 +14,11 @@ _🦌 网页小游戏 🥛_
 
 小游戏：吃掉蔡徐坤
 
-最新版本号：0.0.3f1
+最新版本号：[0.0.3f1](https://github.com/OneSitos/EatKun/tree/0.0.3f1)
 
 [English](README_EN.md)
+|
+[繁體中文](README_HANT.md)
 |
 [Github](https://github.com/EatKun)
 |
@@ -92,16 +94,15 @@ _🦌 网页小游戏 🥛_
 
 按照这些步骤来在你的服务器上配置排行榜的数据库。
 
-1. 将`index.js`的username0中的0去掉，message0中的0去掉，`index.php`中的username0中的0去掉，message0中的0去掉。
+1. 创建数据库并且执行提供的脚本（这里用`kun`作为数据库名）：
 
-2. 创建数据库并且执行提供的脚本（这里用`kun`作为数据库名）：
    ```sql
    CREATE DATABASE kun DEFAULT CHARSET=utf8;
    USE kun;
    SOURCE kun.sql;
    ```
 
-3. 更改有数据库信息的`conn.php`为你的数据库配置：
+2. 更改有数据库信息的`conn.php`为你的数据库配置：
 
    ```php
    <?php
