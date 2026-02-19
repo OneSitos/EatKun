@@ -528,6 +528,9 @@ const MODE_NORMAL = 1, MODE_ENDLESS = 2, MODE_PRACTICE = 3;
         if (cookie("title")) {
             $('title').text(cookie('title'));
             $('#title').val(cookie('title'));
+        } else { // 无 cookie 直接用默认，不需要刷新
+            $('title').text(I18N['eat-kun']);
+            $('#title').val(I18N['eat-kun']);
         }
         let keyboard = cookie('keyboard');
         if (keyboard) {
@@ -538,10 +541,23 @@ const MODE_NORMAL = 1, MODE_ENDLESS = 2, MODE_PRACTICE = 3;
             map[keyboard.charAt(1)] = 2;
             map[keyboard.charAt(2)] = 3;
             map[keyboard.charAt(3)] = 4;
+        } else { // 无 cookie 直接用默认，不需要刷新
+            keyboard = "dfjk";
+            $("#keyboard").val(keyboard);
+            map = {}
+            map['d'] = 1;
+            map['f'] = 2;
+            map['j'] = 3;
+            map['k'] = 4;
         }
         if (cookie('gameTime')) {
             $('#gameTime').val(cookie('gameTime'));
             _gameSettingNum = parseInt(cookie('gameTime'));
+            gameRestart();
+        } else { // 无 cookie 直接用默认，不需要刷新
+            const defaultGameTime = "20";
+            $('#gameTime').val(defaultGameTime);
+            _gameSettingNum = parseInt(defaultGameTime);
             gameRestart();
         }
     }
@@ -595,6 +611,7 @@ const MODE_NORMAL = 1, MODE_ENDLESS = 2, MODE_PRACTICE = 3;
 
     w.openWebpage = function(link) { // 使用了 https://github.com/Webpage-gh/eatcat 的代码，openWebpage 代码使用 https://raw.githubusercontent.com/OneSitos/EatKun/refs/heads/main/files/license/github.Webpage-gh.eatcat_LICENSE.txt 进行授权
         const confirmText = I18N && I18N['confirm-redirect'] ? I18N['confirm-redirect'] : "CONFIRM-REDIRECT-I18N"; // Display the confirmation prompt
+        let confirmation = confirm(confirmText);
         if (confirmation) {
             window.location.href = link; // If the user confirms, proceed with the URL redirection
         }
