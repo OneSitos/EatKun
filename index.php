@@ -28,15 +28,15 @@
         <div style="padding:5%;margin-top: 200px;background-color: rgba(125, 181, 216, 0.3);">
                 <div id="GameScoreLayer-text"></div>
                 <div id="GameScoreLayer-CPS" class="mb-2 d-flex flex-row justify-content-center text-start">
-                    <div class="col-3" data-i18n="cps"></div>
+                    <div class="col-3" data-i18n="cps">CPS-I18N</div>
                     <div class="col-2" id="cps"></div>
                 </div>
                 <div id="GameScoreLayer-score" class="mb-2 d-flex flex-row justify-content-center text-start">
-                    <div class="col-3" data-i18n="score"></div>
+                    <div class="col-3" data-i18n="score">SCORE-I18N</div>
                     <div class="col-2" id="score"></div>
                 </div>
                 <div id="GameScoreLayer-bast" class="mb-2 d-flex flex-row justify-content-center text-start">
-                    <div class="col-3" data-i18n="best"></div>
+                    <div class="col-3" data-i18n="best">BEST-I18N</div>
                     <div class="col-2" id="best"></div>
                 </div>
                 <button type="button" class="btn btn-secondary btn-lg" id="replay" onclick="replayBtn()" data-i18n="again">AGAIN-I18N</button>
