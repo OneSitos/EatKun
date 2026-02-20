@@ -47,7 +47,7 @@
 
           function local() {
             if ($('#search').val()) {
-              window.location.href = "?type=query&query=" + $('#search').val();
+              window.location.href = "?type=query&query=" + encodeURIComponent($('#search').val());
             } else {
               alert("Name not filled in")
             }

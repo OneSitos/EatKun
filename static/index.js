@@ -23,7 +23,7 @@ const MODE_NORMAL = 1, MODE_ENDLESS = 2, MODE_PRACTICE = 3;
             method: 'GET',
             async: false,
             success: data => res = data,
-            error: () => alert('找不到语言文件: ' + lang)
+            error: () => alert('The language file error(s) was​/were detected: ' + lang)
         }).responseJSON
     }
 

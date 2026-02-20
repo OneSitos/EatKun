@@ -44,10 +44,10 @@ if ($RankingType == 'all') {
 }
 ?>
 <!DOCTYPE html>
-<html lang=<?php echo $i18n['lang']; ?>>
+<html>
 
 <head>
-  <title><?php echo $i18n['rank-title']; ?></title>
+  <title data-i18n="rank-title">RANK-TITLE-I18N</title>
   <meta item="description" content="EatKun" />
   <meta charset="utf-8" />
   <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1.0" />
@@ -66,24 +66,24 @@ if ($RankingType == 'all') {
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item">
-            <a class="nav-link <?php echo $RankingType == 'day' ? "active" : ""; ?>" href="?type=day"><?php echo $i18n['daily-ranking']; ?></a>
+            <a class="nav-link <?php echo $RankingType == 'day' ? "active" : ""; ?>" href="?type=day" data-i18n="daily-ranking">DAILY-RANKING-I18N</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link <?php echo $RankingType == 'week' ? "active" : ""; ?>" href="?type=week"><?php echo $i18n['weekly-ranking']; ?></a>
+            <a class="nav-link <?php echo $RankingType == 'week' ? "active" : ""; ?>" href="?type=week" data-i18n="weekly-ranking">WEEKLY-RANKING-I18N</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link <?php echo $RankingType == 'month' ? "active" : ""; ?>" href="?type=month"><?php echo $i18n['monthly-ranking']; ?></a>
+            <a class="nav-link <?php echo $RankingType == 'month' ? "active" : ""; ?>" href="?type=month" data-i18n="monthly-ranking">MOUTHLY-RANKING-I18N</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link <?php echo $RankingType == 'all' ? "active" : ""; ?>" href="?type=all"><?php echo $i18n['all-ranking']; ?></a>
+            <a class="nav-link <?php echo $RankingType == 'all' ? "active" : ""; ?>" href="?type=all" data-i18n="all-ranking">ALL-RANKING-I18N</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="https://github.com/OneSitos/EatKun"><?php echo $i18n['source-code']; ?></a>
+            <a class="nav-link" href="https://github.com/OneSitos/EatKun"" data-i18n="source-code">SOURCE-CODE-I18N</a>
           </li>
         </ul>
         <form class="d-flex text-nowrap" action="" onsubmit="return func()">
-          <input class="form-control me-2" id="search" placeholder="<?php echo $i18n['query-input']; ?>">
-          <button class="btn btn-outline-success" onclick="local()"><?php echo $i18n['search-btn']; ?></button>
+          <input class="form-control me-2" id="search" placeholder="QUERY-INPUT-I18N" data-placeholder-i18n="query-input">
+          <button class="btn btn-outline-success" onclick="local()" data-i18n="search-btn">SEARCH-BTN-I18N</button>
         </form>
         <script>
           function func() {
@@ -92,7 +92,7 @@ if ($RankingType == 'all') {
 
           function local() {
             if ($('#search').val()) {
-              window.location.href = "?type=query&query=" + $('#search').val();
+              window.location.href = "?type=query&query=" + encodeURIComponent($('#search').val());
             } else {
               alert("Name not filled in")
             }
@@ -185,6 +185,7 @@ if ($RankingType == 'all') {
       </div>
     </footer>
   </div>
+<script src="./static/javascript/LanguageDetection.js"></script>
 </body>
 
 </html>

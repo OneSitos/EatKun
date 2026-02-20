@@ -1,29 +1,27 @@
 (function(w) {
     function getJsonI18N() {
-        // https://developer.mozilla.org/zh-CN/docs/Web/API/Navigator/language
-        
+        // 详见 https://developer.mozilla.org/zh-CN/docs/Web/API/Navigator/language
+
         const LANGUAGES = [
-            { regex: /^zh-CN\b/, lang: 'zh' },
-            { regex: /^zh-TW\b/, lang: 'zht' },
-            { regex: /^zh-HK\b/, lang: 'zht' },
-            { regex: /^zh-MO\b/, lang: 'zht' },
-            { regex: /^zh-cn\b/, lang: 'zh' },
-            { regex: /^zh-tw\b/, lang: 'zht' },
-            { regex: /^zh-hk\b/, lang: 'zht' },
-            { regex: /^zh-mo\b/, lang: 'zht' },
-            { regex: /^ja\b/, lang: 'ja' },
+            { regex: /^zh-TW\b/i, lang: 'zht' },
+            { regex: /^zh-HK\b/i, lang: 'zht' },
+            { regex: /^zh-MO\b/i, lang: 'zht' },
+            { regex: /^zh-Hans\b/i, lang: 'zh' },
+            { regex: /^zh-Hant\b/i, lang: 'zht' },
+            { regex: /^zh\b/i, lang: 'zh' },
+            { regex: /^ja\b/i, lang: 'ja' },
             { regex: /.*/, lang: 'en'}
         ]
 
         const lang = LANGUAGES.find(l => l.regex.test(navigator.language)).lang
-        
+
         return $.ajax({
             url: `./static/i18n/${lang}.json`,
             dataType: 'json',
             method: 'GET',
             async: false,
             success: data => res = data,
-            error: () => alert('找不到语言文件: ' + lang)
+            error: () => alert('The language file error(s) was​/were detected: ' + lang)
         }).responseJSON
     }
 
