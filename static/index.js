@@ -519,12 +519,14 @@ const MODE_NORMAL = 1, MODE_ENDLESS = 2, MODE_PRACTICE = 3;
     function initSetting() {
         $("#username").val(cookie("username") ? cookie("username") : "");
         $("#message").val(cookie("message") ? cookie("message") : "");
+
         if (cookie("title")) {
             $('title').text(cookie('title'));
             $('#title').val(cookie('title'));
         } else { // 无 cookie 直接用默认，不需要刷新
-            $('title').text(I18N['eat-kun']);
+            $('title').text(I18N['eat-kano']);
         }
+
         let keyboard = cookie('keyboard');
         if (keyboard) {
             keyboard = keyboard.toString().toLowerCase();
@@ -534,7 +536,7 @@ const MODE_NORMAL = 1, MODE_ENDLESS = 2, MODE_PRACTICE = 3;
             map[keyboard.charAt(1)] = 2;
             map[keyboard.charAt(2)] = 3;
             map[keyboard.charAt(3)] = 4;
-        } else { // 无 cookie 直接用默认，不需要刷新
+        } else {
             keyboard = "dfjk";
             map = {}
             map['d'] = 1;
@@ -542,11 +544,12 @@ const MODE_NORMAL = 1, MODE_ENDLESS = 2, MODE_PRACTICE = 3;
             map['j'] = 3;
             map['k'] = 4;
         }
+
         if (cookie('gameTime')) {
             $('#gameTime').val(cookie('gameTime'));
             _gameSettingNum = parseInt(cookie('gameTime'));
             gameRestart();
-        } else { // 无 cookie 直接用默认，不需要刷新
+        } else {
             const defaultGameTime = "20";
             _gameSettingNum = parseInt(defaultGameTime);
             gameRestart();
@@ -569,7 +572,7 @@ const MODE_NORMAL = 1, MODE_ENDLESS = 2, MODE_PRACTICE = 3;
         for (let s of settings) {
             let value=$(`#${s}`).val();
             if (value) {
-                cookie(s, value, 365);
+                cookie(s, value, 100);
             } else {
                 cookie(s, '', -1);
             }
