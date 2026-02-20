@@ -525,34 +525,30 @@ const MODE_NORMAL = 1, MODE_ENDLESS = 2, MODE_PRACTICE = 3;
         $("#message").val(cookie("message") ? cookie("message") : "");
         $("#username0").val(cookie("username0") ? cookie("username0") : ""); // 假的 username，不会上传数据
         $("#message0").val(cookie("message0") ? cookie("message0") : ""); // 假的 message，不会上传数据
+
         if (cookie("title")) {
             $('title').text(cookie('title'));
             $('#title').val(cookie('title'));
         } else { // 无 cookie 直接用默认，不需要刷新
             $('title').text(I18N['eat-kun']);
         }
+
         let keyboard = cookie('keyboard');
         if (keyboard) {
             keyboard = keyboard.toString().toLowerCase();
             $("#keyboard").val(keyboard);
-            map = {}
-            map[keyboard.charAt(0)] = 1;
-            map[keyboard.charAt(1)] = 2;
-            map[keyboard.charAt(2)] = 3;
-            map[keyboard.charAt(3)] = 4;
-        } else { // 无 cookie 直接用默认，不需要刷新
-            keyboard = "dfjk";
-            map = {}
-            map['d'] = 1;
-            map['f'] = 2;
-            map['j'] = 3;
-            map['k'] = 4;
         }
+        keyboard = keyboard || "dfjk";
+        map = {};
+        for (let i = 0; i < 4; i++) {
+            map[keyboard.charAt(i)] = i + 1;
+        }
+
         if (cookie('gameTime')) {
             $('#gameTime').val(cookie('gameTime'));
             _gameSettingNum = parseInt(cookie('gameTime'));
             gameRestart();
-        } else { // 无 cookie 直接用默认，不需要刷新
+        } else {
             const defaultGameTime = "20";
             _gameSettingNum = parseInt(defaultGameTime);
             gameRestart();
