@@ -82,7 +82,14 @@
                     <input type="file" id="click-before-image" accept="image/*" class="d-none" onchange="saveClickBeforeImage()">
                     <a data-i18n="img-after" type="button" class="btn text-nowrap btn-secondary me-1" onclick="getClickAfterImage()" style="right: 0">IMG-AFTER-I18N</a>
                     <input type="file" id="click-after-image" accept="image/*" style="display: none;" onchange="saveClickAfterImage()">
-                    <a id="sound" type="button" class="btn text-nowrap btn-secondary" onclick="changeSoundMode()"></a>
+                    <!--<a id="" type="button" class="btn text-nowrap btn-secondary"></a>--!>
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" data-i18n="sound">SOUND-I18N</span>
+                    </div>
+                    <input type="checkbox" class="checkbox-input form-check-input" id="sound" onclick="changeSoundMode()">
+                </div>
+                <div class="input-group mb-3">
+
                 </div>
                 <div class="input-group mb-3">
                     <div class="input-group-prepend col-2">

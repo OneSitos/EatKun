@@ -212,6 +212,25 @@ body {
     overflow: hidden;
 }
 
+#sound {
+    width: 47px;
+    height: 47px;
+    margin-top: 0rem;
+    box-sizing: border-box;
+    cursor: pointer;
+}
+
+.checkbox-input {
+    box-sizing: border-box;
+    cursor: pointer;
+}
+
+.checkbox-input.form-check-input {
+    width: 47px;
+    height: 47px;
+    margin-top: 0rem;
+}
+
 .share-icon {
     width: 1.7em;
     background-repeat: no-repeat;

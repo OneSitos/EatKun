@@ -88,6 +88,9 @@ const MODE_NORMAL = 1, MODE_ENDLESS = 2, MODE_PRACTICE = 3;
         gameInit();
         initSetting();
         window.addEventListener('resize', refreshSize, false);
+        $('#c').change(function() {
+            changeSoundMode();
+        });
     }
 
     function getMode() {
@@ -101,12 +104,11 @@ const MODE_NORMAL = 1, MODE_ENDLESS = 2, MODE_PRACTICE = 3;
     }
 
     w.changeSoundMode = function() {
-        if (soundMode === 'on') {
-            soundMode = 'off';
-            $('#sound').text(I18N['sound-off']);
-        } else {
+        let isChecked = $('#sound').prop('checked');
+        if (isChecked) {
             soundMode = 'on';
-            $('#sound').text(I18N['sound-on']);
+        } else {
+            soundMode = 'off';
         }
         cookie('soundMode', soundMode);
     }
@@ -553,6 +555,13 @@ const MODE_NORMAL = 1, MODE_ENDLESS = 2, MODE_PRACTICE = 3;
             _gameSettingNum = parseInt(defaultGameTime);
             gameRestart();
         }
+
+        if (cookie('soundMode')) {
+            soundMode = cookie('soundMode');
+        } else {
+            soundMode = 'on';
+            cookie('soundMode', soundMode);
+        }
     }
 
     w.show_btn = function() {
@@ -563,7 +572,7 @@ const MODE_NORMAL = 1, MODE_ENDLESS = 2, MODE_PRACTICE = 3;
     w.show_setting = function() {
         $('#btn_group,#desc').css('display', 'none')
         $('#setting,#version').css('display', 'block')
-        $('#sound').text(soundMode === 'on' ? I18N['sound-on'] : I18N['sound-off']);
+        $('#sound').prop('checked', soundMode === 'on');
     }
 
     w.save_cookie = function() {
