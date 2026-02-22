@@ -226,8 +226,7 @@ body {
 }
 
 .checkbox-input.form-check-input {
-    width: 47px;
-    height: 47px;
+    padding: .375rem .75rem;
     margin-top: 0rem;
 }
 
