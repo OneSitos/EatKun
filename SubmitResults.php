@@ -17,6 +17,12 @@ $privateKey = (string) "-----BEGIN PRIVATE KEY-----\n" . $key_eol . "\n-----END 
 @openssl_private_decrypt(base64_decode($encryptString), $decrypted, $privateKey);
 $arr = explode('|_|', $decrypted);
 
+if (count($arr) < 4) {
+    error_log("SR error: Insufficient data in decryspted field! Data: " . $decrypted);
+    echo 'Data Format Error';
+    exit();
+}
+
 $str = "/\ |\/|\~|\!|\@|\#|\\$|\%|\^|\&|\*|\(|\)|\_|\+|\{|\}|\:|\<|\>|\?|\[|\]|\,|\.|\/|\;|\'|\`|\-|\=|\\\|\|/";
 $score = preg_replace($str, "", $arr[0]);
 $name = preg_replace($str, "", $arr[1]);
