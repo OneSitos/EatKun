@@ -15,13 +15,22 @@
 
         const lang = LANGUAGES.find(l => l.regex.test(navigator.language)).lang
 
+        const ERROR_MESSAGES = {
+            'en': 'The language file error(s) was/were detected: ',
+            'zh': '检测到语言文件错误：',
+            'zht': '偵測到語言檔案錯誤：',
+            'ja': '言語ファイルエラーが検出されました：'
+        }
+
+        const errorMsg = ERROR_MESSAGES[lang] || ERROR_MESSAGES['en']
+
         return $.ajax({
             url: `./static/i18n/${lang}.json`,
             dataType: 'json',
             method: 'GET',
             async: false,
             success: data => res = data,
-            error: () => alert('The language file error(s) was​/were detected: ' + lang)
+            error: () => alert(errorMsg + lang)
         }).responseJSON
     }
 
@@ -37,4 +46,13 @@
     });
 
     $('html').attr('lang', I18N['lang']);
+
+    w.local = function() {
+        if ($('#search').val()) {
+            window.location.href = "?type=query&query=" + encodeURIComponent($('#search').val());
+        } else {
+            const alertText = I18N && I18N['name-not-filled'] ? I18N['name-not-filled'] : "NAME-NOT-FILLED-I18N";
+            alert(alertText);
+        }
+    }
 }) (window);

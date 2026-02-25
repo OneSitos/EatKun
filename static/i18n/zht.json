@@ -59,6 +59,7 @@
   "source-code": "源碼",
   "query-input": "要查詢的名字",
   "search-btn": "查詢",
+  "name-not-filled": "名字未填寫",
   "no-data": "現在還沒有數據",
   "no-message": "這個人很懶什麼也沒留下",
   "self-record": "{name} 的最高記錄. 已上傳 {attempts} 次<br/>SCORE:{score} {time}",

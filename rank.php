@@ -51,6 +51,7 @@ if ($RankingType == 'all') {
   <meta item="description" content="EatKun" />
   <meta charset="utf-8" />
   <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1.0" />
+  <link rel="icon" href="./static/image/ClickBefore.png" type="image/x-icon" />
   <link href="./files/css/bootstrap.min.css" rel="stylesheet">
   <script src="./files/js/bootstrap.bundle.min.js"></script>
   <script src="./files/js/jquery.min.js"></script>
@@ -59,7 +60,7 @@ if ($RankingType == 'all') {
 <body>
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container">
-      <a class="navbar-brand" href="./"><?php echo $i18n['navbar-brand']; ?></a>
+      <a class="navbar-brand" href="./" data-i18n="navbar-brand">NAVBER-BRAND-I18N</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -78,33 +79,20 @@ if ($RankingType == 'all') {
             <a class="nav-link <?php echo $RankingType == 'all' ? "active" : ""; ?>" href="?type=all" data-i18n="all-ranking">ALL-RANKING-I18N</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="https://github.com/OneSitos/EatKun"" data-i18n="source-code">SOURCE-CODE-I18N</a>
+            <a class="nav-link" href="https://github.com/OneSitos/EatKun" data-i18n="source-code">SOURCE-CODE-I18N</a>
           </li>
         </ul>
-        <form class="d-flex text-nowrap" action="" onsubmit="return func()">
+        <form class="d-flex text-nowrap" action="" onsubmit="return false;">
           <input class="form-control me-2" id="search" placeholder="QUERY-INPUT-I18N" data-placeholder-i18n="query-input">
           <button class="btn btn-outline-success" onclick="local()" data-i18n="search-btn">SEARCH-BTN-I18N</button>
         </form>
-        <script>
-          function func() {
-            return false;
-          }
-
-          function local() {
-            if ($('#search').val()) {
-              window.location.href = "?type=query&query=" + encodeURIComponent($('#search').val());
-            } else {
-              alert("Name not filled in")
-            }
-          }
-        </script>
       </div>
     </div>
   </nav>
   <div style="max-width:640px;margin:0 auto;">
     <div class="page-header text-center">
       <br />
-      <h1><?php echo $title; ?></h1><br />
+      <h1 data-i18n="rank">RANK-I18N</h1><br />
     </div>
     <div class="list-group">
       <?php

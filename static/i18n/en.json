@@ -59,6 +59,7 @@
   "source-code": "Source code",
   "query-input": "Name to query",
   "search-btn": "Search",
+  "name-not-filled": "Name not filled in",
   "no-data": "There is no data yet",
   "no-message": "No message",
   "self-record": "{name} highest record. Uploaded {attempts} times<br/>SCORE:{score} {time}",

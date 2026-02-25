@@ -59,6 +59,7 @@
   "source-code": "ソースコード",
   "query-input": "クエリするクン名",
   "search-btn": "詮索",
+  "name-not-filled": "姓名が未入力",
   "no-data": "まだデータはありません",
   "no-message": "このKUNは怠惰で何も残しません",
   "self-record": "{name} の最高記録. アップロード {attempts} 回<br/>スコア:{score} {time}",

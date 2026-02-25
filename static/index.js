@@ -17,13 +17,22 @@ const MODE_NORMAL = 1, MODE_ENDLESS = 2, MODE_PRACTICE = 3;
 
         const lang = LANGUAGES.find(l => l.regex.test(navigator.language)).lang
 
+        const ERROR_MESSAGES = {
+            'en': 'The language file error(s) was/were detected: ',
+            'zh': '检测到语言文件错误：',
+            'zht': '偵測到語言檔案錯誤：',
+            'ja': '言語ファイルエラーが検出されました：'
+        }
+
+        const errorMsg = ERROR_MESSAGES[lang] || ERROR_MESSAGES['en']
+
         return $.ajax({
             url: `./static/i18n/${lang}.json`,
             dataType: 'json',
             method: 'GET',
             async: false,
             success: data => res = data,
-            error: () => alert('The language file error(s) was​/were detected: ' + lang)
+            error: () => alert(errorMsg + lang)
         }).responseJSON
     }
 
@@ -464,13 +473,13 @@ const MODE_NORMAL = 1, MODE_ENDLESS = 2, MODE_PRACTICE = 3;
     }
 
     w.replayBtn = function() {
+        createjs.Sound.stop();
         gameRestart();
         hideGameScoreLayer();
     }
 
     w.backBtn = function() {
-        gameRestart();
-        hideGameScoreLayer();
+        replayBtn();
         showWelcomeLayer();
     }
 
