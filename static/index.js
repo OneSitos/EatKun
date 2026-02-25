@@ -488,16 +488,16 @@ const MODE_NORMAL = 1, MODE_ENDLESS = 2, MODE_PRACTICE = 3;
             let date2 = new Date();
             deviationTime = (date2.getTime() - _date1.getTime())
             if (!legalDeviationTime()) {
-                return I18N['time-over'] + ((deviationTime / 1000) - _gameSettingNum).toFixed(2) + 's';
+                return I18N && I18N['time-over'] ? I18N['time-over'] : "TIME-OVER-I18N" + ((deviationTime / 1000) - _gameSettingNum).toFixed(2) + 's';
             }
             SubmitResults();
         }
 
-        if (cps <= 5) return I18N['text-level-1'];
-        if (cps <= 8) return I18N['text-level-2'];
-        if (cps <= 10)  return I18N['text-level-3'];
-        if (cps <= 15) return I18N['text-level-4'];
-        return I18N['text-level-5'];
+        if (cps <= 5) return I18N && I18N['text-level-1'] ? I18N['text-level-1'] : "TEXT-LEVEL-1-I18N";
+        if (cps <= 8) return I18N && I18N['text-level-2'] ? I18N['text-level-2'] : "TEXT-LEVEL-2-I18N";
+        if (cps <= 10) return I18N && I18N['text-level-3'] ? I18N['text-level-3'] : "TEXT-LEVEL-3-I18N";
+        if (cps <= 15) return I18N && I18N['text-level-4'] ? I18N['text-level-4'] : "TEXT-LEVEL-4-I18N";
+        return I18N && I18N['text-level-5'] ? I18N['text-level-5'] : "TEXT-LEVEL-5-I18N";
     }
 
     function toStr(obj) {
@@ -541,7 +541,8 @@ const MODE_NORMAL = 1, MODE_ENDLESS = 2, MODE_PRACTICE = 3;
             $('title').text(cookie('title'));
             $('#title').val(cookie('title'));
         } else { // 无 cookie 直接用默认，不需要刷新
-            $('title').text(I18N['eat-kun']);
+            const defaultTitle = I18N && I18N['eat-kun'] ? I18N['eat-kun'] : "EAT-KUN-I18N";
+            $('title').text(defaultTitle);
         }
 
         let keyboard = cookie('keyboard');
