@@ -44,7 +44,7 @@
                 <button type="button" class="btn btn-secondary btn-lg" onclick="goRank()" data-i18n="rank">RANK-I18N</button>
                 <button type="button" class="btn btn-secondary btn-lg" onclick="openWebpage('https://github.com/OneSitos/EatKun')" data-i18n="repo">REPO-I18N</button>
                 <button type="button" class="btn btn-secondary btn-lg" onclick="openWebpage('https://github.com/OneSitos/EatKun/wiki#license')" data-i18n="license">LICENSE-I18N</button>
-                <button type="button" class="btn btn-secondary btn-lg" onclick="openWebpage('https://github.com/OneSitos/EatKun/blob/main/README_EN.md#used-items-and-their-licenses')'" data-i18n="use-project">USE-PROJECT-I18N</button>
+                <button type="button" class="btn btn-secondary btn-lg" onclick="openWebpage('https://github.com/OneSitos/EatKun/blob/main/README_EN.md#used-items-and-their-licenses')" data-i18n="use-project">USE-PROJECT-I18N</button>
                 <button type="button" class="btn btn-secondary btn-lg" onclick="openWebpage('https://github.com/OneSitos/EatKun/wiki#disclaimer')" data-i18n="disclaimer">DISCLAIMER-I18N</button>
             </div>
     </div>
@@ -62,7 +62,7 @@
                         <span data-i18n="game-intro4">GAME-INTRO4-I18N</span><br />
                     </div>
                     <div id="version" style="display: none;font-size:2.2em; color:#fff; line-height:1.5em;">
-                        <span data-i18n="version">VERSION-I18N</span><span><a href="https://github.com/OneSitos/EatKun/tree/0.0.4">0.0.4</a></span><br />
+                        <span data-i18n="version">VERSION-I18N</span><span><a href="javascript: void(0);" onclick="openWebpage('https://github.com/OneSitos/EatKun/tree/0.0.4')">0.0.4</a></span><br />
                     </div>
                 </div>
                 <div id="btn_group" class="container text-nowrap">

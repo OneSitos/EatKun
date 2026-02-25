@@ -38,7 +38,7 @@
   "repo": "Source code",
   "license": "License",
   "use-project": "Use project",
-  "confirm-redirect": "Are you sure you want to navigate to another webpage?",
+  "confirm-redirect": "Are you sure you want to navigate to another webpage?\n\nThe webpage to navigate to is:\n",
   "text-level-1": "Try to practice well for two and a half years?",
   "text-level-2": "Not yet to the level of KUN!",
   "text-level-3": "Soon to surpass KUN!",

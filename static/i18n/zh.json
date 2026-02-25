@@ -38,7 +38,7 @@
   "repo": "源代码",
   "license": "许可证",
   "use-project": "使用的项目",
-  "confirm-redirect": "确定要跳转到其他网页吗？",
+  "confirm-redirect": "确定要跳转到其他网页吗？\n\n要跳转到的网页是：\n",
   "text-level-1": "试着好好练个两年半？",
   "text-level-2": "还没到蔡徐坤的程度！",
   "text-level-3": "马上就要超过蔡徐坤的程度！",

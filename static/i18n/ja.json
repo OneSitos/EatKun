@@ -38,7 +38,7 @@
   "repo": "GitHub",
   "license": "ライセンス",
   "use-project": "プロジェクトを使用する",
-  "confirm-redirect": "他のウェブページに移動してもよろしいですか？",
+  "confirm-redirect": "他のウェブページに移動してもよろしいですか？\n\n移動するウェブページは：\n",
   "text-level-1": "2年半よく練習してみませんか?",
   "text-level-2": "まだKUNのレベルに達していません!",
   "text-level-3": "まもなくKUNを超える!",

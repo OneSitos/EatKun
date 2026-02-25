@@ -38,7 +38,7 @@
   "repo": "源代碼",
   "license": "許可證",
   "use-project": "使用的程式",
-  "confirm-redirect": "確定要跳轉到其他網頁嗎？",
+  "confirm-redirect": "確定要跳轉到其他網頁嗎？\n\n要跳轉到的網頁是：\n",
   "text-level-1": "試著好好練個兩年半？",
   "text-level-2": "還沒到蔡徐坤的程度！",
   "text-level-3": "馬上就要超過蔡徐坤的程度！",
