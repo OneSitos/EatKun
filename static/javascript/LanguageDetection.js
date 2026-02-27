@@ -55,4 +55,12 @@
             alert(alertText);
         }
     }
+
+    w.openWebpage = function(link) { // 使用了 https://github.com/Webpage-gh/eatcat 的代码，openWebpage 代码使用 https://raw.githubusercontent.com/OneSitos/EatKun/refs/heads/main/files/license/github.Webpage-gh.eatcat_LICENSE.txt 进行授权
+        const confirmText = I18N && I18N['confirm-redirect'] + link ? I18N['confirm-redirect'] + link : "CONFIRM-REDIRECT-I18N\n" + link; // Display the confirmation prompt
+        let confirmation = confirm(confirmText);
+        if (confirmation) {
+            window.location.href = link; // If the user confirms, proceed with the URL redirection
+        }
+    }
 }) (window);
