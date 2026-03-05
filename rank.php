@@ -79,7 +79,7 @@ if ($RankingType == 'all') {
             <a class="nav-link <?php echo $RankingType == 'all' ? "active" : ""; ?>" href="?type=all" data-i18n="all-ranking">ALL-RANKING-I18N</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="javascript: void(0);" onclick="openWebpage('https://github.com/OneSitos/EatKun/tree/0.1.0')" data-i18n="source-code">SOURCE-CODE-I18N</a>
+            <a class="nav-link" href="javascript: void(0);" onclick="openWebpage('https://github.com/OneSitos/EatKun/')" data-i18n="source-code">SOURCE-CODE-I18N</a>
           </li>
         </ul>
         <form class="d-flex text-nowrap" action="" onsubmit="return false;">
