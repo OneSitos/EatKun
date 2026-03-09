@@ -25,7 +25,7 @@
 </head>
 
 <body onLoad="init()" oncontextmenu=self.event.returnValue=false>
-    <div id="GameScoreLayer" class="BBOX SHADE bgc1" style="display:none;">
+    <div id="GameScoreLayer" class="BBOX SHADE bgc1 default-mouse" style="display:none;">
         <div style="padding:5%;margin-top: 200px;background-color: rgba(125, 181, 216, 0.3);">
                 <div id="GameScoreLayer-text"></div>
                 <div id="GameScoreLayer-CPS" class="mb-2 d-flex flex-row justify-content-center text-start">
@@ -54,16 +54,16 @@
         <div class="welcome-bg FILL"></div>
         <div class="FILL BOX-M" style="position:absolute;top:0;left:0;right:0;bottom:0;z-index:5;">
             <div class="container">
-                <div class="container mb-5">
-                    <div class="default-mouse" style="font-size:2.6em; color:#FEF002;" data-i18n="game-title">GAME-TITLE-I18N</div><br />
-                    <div class="default-mouse" id="desc" style="display: block;font-size:2.2em; color:#fff; line-height:1.5em;">
+                <div class="container mb-5 default-mouse">
+                    <div style="font-size:2.6em; color:#FEF002;" data-i18n="game-title">GAME-TITLE-I18N</div><br />
+                    <div id="desc" style="display: block;font-size:2.2em; color:#fff; line-height:1.5em;">
                         <span data-i18n="game-intro1">GAME-INTRO1-I18N</span><br />
                         <span data-i18n="game-intro2">GAME-INTRO2-I18N</span><br />
                         <span data-i18n="game-intro3">GAME-INTRO3-I18N</span><br />
                         <span data-i18n="game-intro4">GAME-INTRO4-I18N</span><br />
                     </div>
                     <div id="version" style="display: none;font-size:2.2em; color:#fff; line-height:1.5em;">
-                        <span class="default-mouse" data-i18n="version">VERSION-I18N</span><a href="javascript: void(0);" onclick="openWebpage('https://github.com/OneSitos/EatKun/tree/0.1.0')">0.1.0</a><br />
+                        <span data-i18n="version">VERSION-I18N</span><a href="javascript: void(0);" onclick="openWebpage('https://github.com/OneSitos/EatKun/tree/0.1.0')">0.1.0</a><br />
                     </div>
                 </div>
                 <div id="btn_group" class="container text-nowrap">
@@ -80,44 +80,44 @@
                         <a class="btn btn-secondary btn-lg" onclick="show_setting()" data-i18n="settings">SETTINGS-I18N</a>
                     </div>
                 </div>
-                <div id="setting" class="container" style="display: none;">
+                <div id="setting" class="container default-mouse" style="display: none;">
                     <div class="container mb-3 btn-group">
                         <a data-i18n="img-before" type="button" class="btn text-nowrap btn-secondary me-1" onclick="getClickBeforeImage()" style="left: 0">IMG-BEFORE-I18N</a>
                         <input type="file" id="click-before-image" accept="image/*" class="d-none" onchange="saveClickBeforeImage()">
                         <a data-i18n="img-after" type="button" class="btn text-nowrap btn-secondary me-1" onclick="getClickAfterImage()" style="right: 0">IMG-AFTER-I18N</a>
                         <input type="file" id="click-after-image" accept="image/*" style="display: none;" onchange="saveClickAfterImage()">
                         <div class="input-group-prepend">
-                            <span class="input-group-text default-mouse" data-i18n="sound">SOUND-I18N</span>
+                            <span class="input-group-text" data-i18n="sound">SOUND-I18N</span>
                         </div>
                         <input type="checkbox" class="checkbox-input form-check form-check-input" id="sound" onclick="changeSoundMode()">
                     </div>
                     <div class="input-group mb-3">
                         <div class="input-group-prepend col-2">
-                            <span class="input-group-text default-mouse" data-i18n="title">TITLE-I18N</span>
+                            <span class="input-group-text" data-i18n="title">TITLE-I18N</span>
                         </div>
                         <input data-placeholder-i18n="eat-kun" type="text" id="title" class="form-control" placeholder="EAT-KUN-I18N">
                     </div>
                     <div class="input-group mb-3">
                         <div class="input-group-prepend col-2">
-                            <span data-i18n="key" class="input-group-text default-mouse">KEY-I18N</span>
+                            <span data-i18n="key" class="input-group-text">KEY-I18N</span>
                         </div>
                         <input data-placeholder-i18n="default-dfjk" type="text" id="keyboard" class="form-control" maxlength=4 placeholder="DFJK-I18N">
                     </div>
                     <div class="input-group mb-3">
                         <div class="input-group-prepend col-2">
-                            <span data-i18n="time" class="input-group-text default-mouse">TIME-I18N</span>
+                            <span data-i18n="time" class="input-group-text">TIME-I18N</span>
                         </div>
                         <input data-placeholder-i18n="default-20s" type="text" id="gameTime" class="form-control" maxlength=4 placeholder="default-20s">
                     </div>
                     <div class="input-group mb-3">
                         <div class="input-group-prepend col-2">
-                            <span class="input-group-text default-mouse" data-i18n="name">NAME-I18N</span>
+                            <span class="input-group-text" data-i18n="name">NAME-I18N</span>
                         </div>
                         <input data-placeholder-i18n="record-rank" type="text" id="username" class="form-control" maxlength=8 placeholder="RECORD-RANK-I18N">
                     </div>
                     <div class="input-group mb-3">
                         <div class="input-group-prepend col-2">
-                            <span class="input-group-text default-mouse" data-i18n="comment">COMMENT-I18N</span>
+                            <span class="input-group-text" data-i18n="comment">COMMENT-I18N</span>
                         </div>
                         <input data-placeholder-i18n="no-ad-bad-lang" type="text" id="message" class="form-control" maxlength=50 placeholder="NO-AD-BAD-LANG-I18N">
                     </div>

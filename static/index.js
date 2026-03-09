@@ -418,7 +418,7 @@ const MODE_NORMAL = 1, MODE_ENDLESS = 2, MODE_PRACTICE = 3;
             html += '</div>';
         }
         html += '</div>';
-        html += '<div id="GameTimeLayer" class="text-center"></div>';
+        html += '<div id="GameTimeLayer" class="text-center default-mouse"></div>';
         return html;
     }
 
