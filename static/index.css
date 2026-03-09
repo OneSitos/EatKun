@@ -298,3 +298,7 @@ body {
 .dropdown-item {
     cursor: pointer;
 }
+
+.default-mouse {
+    cursor: default;
+}

@@ -52,6 +52,8 @@ if ($RankingType == 'all') {
   <meta charset="utf-8" />
   <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1.0" />
   <link rel="icon" href="./static/image/ClickBefore.png" type="image/x-icon" />
+  <link rel="apple-touch-icon" id="applogo" href="./static/image/ClickBefore.png">
+  <link href="./static/css/LanguageDetection.css" rel="stylesheet" type="text/css">
   <link href="./files/css/bootstrap.min.css" rel="stylesheet">
   <script src="./files/js/bootstrap.bundle.min.js"></script>
   <script src="./files/js/jquery.min.js"></script>
@@ -92,7 +94,7 @@ if ($RankingType == 'all') {
   <div style="max-width:640px;margin:0 auto;">
     <div class="page-header text-center">
       <br />
-      <h1 data-i18n="rank">RANK-I18N</h1><br />
+      <h1 class="default-mouse" data-i18n="rank">RANK-I18N</h1><br />
     </div>
     <div class="list-group">
       <?php
@@ -117,7 +119,7 @@ if ($RankingType == 'all') {
             <small>" . ($message ? $message : $i18n['no-message']) . "</small></a>";
           }
         } else {
-          echo "<br/><br/><p class='text-center'>" . $i18n['no-data'] . "<p>";
+          echo "<br/><br/><p class='text-center default-mouse' data-i18n='no-data'>NO-DATA-I18N</p>";
         }
         $data_stmt->close();
       }
@@ -149,7 +151,7 @@ if ($RankingType == 'all') {
     </div>
     <footer class='fixed-bottom container' style='max-width:640px;'>
       <div class='row shadow rounded bg-light'>
-        <div style='padding:0.2em 1em;'>
+        <div class="default-mouse" style='padding:0.2em 1em;'>
           <?php
           if (isset($_SESSION['name'])) {
             //Query current user history
