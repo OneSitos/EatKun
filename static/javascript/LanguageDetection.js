@@ -48,29 +48,6 @@
     $('html').attr('lang', I18N['lang']);
 
     w.init = function() {
-        showWelcomeLayer();
-        body = document.getElementById('gameBody') || document.body;
-        body.style.height = window.innerHeight + 'px';
-        transform = typeof (body.style.webkitTransform) != 'undefined' ? 'webkitTransform' : (typeof (body.style.msTransform) !=
-        'undefined' ? 'msTransform' : 'transform');
-        transitionDuration = transform.replace(/ransform/g, 'ransitionDuration');
-        GameTimeLayer = document.getElementById('GameTimeLayer');
-        GameLayer.push(document.getElementById('GameLayer1'));
-        GameLayer[0].children = GameLayer[0].querySelectorAll('div');
-        GameLayer.push(document.getElementById('GameLayer2'));
-        GameLayer[1].children = GameLayer[1].querySelectorAll('div');
-        GameLayerBG = document.getElementById('GameLayerBG');
-        if (GameLayerBG.ontouchstart === null) {
-            GameLayerBG.ontouchstart = gameTapEvent;
-        } else {
-            GameLayerBG.onmousedown = gameTapEvent;
-        }
-        gameInit();
-        initSetting();
-        window.addEventListener('resize', refreshSize, false);
-        $('#c').change(function() {
-            changeSoundMode();
-        });
         if ('serviceWorker' in navigator) {
             window.addEventListener('load', function() {
                 navigator.serviceWorker.register('./static/javascript/ServiceWorker.js')
