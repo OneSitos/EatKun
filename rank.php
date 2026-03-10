@@ -51,15 +51,15 @@ if ($RankingType == 'all') {
   <meta item="description" content="EatKun" />
   <meta charset="utf-8" />
   <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1.0" />
-  <link rel="icon" href="./static/image/ClickBefore.png" type="image/x-icon" />
-  <link rel="apple-touch-icon" id="applogo" href="./static/image/ClickBefore.png">
+  <link rel="icon" href="./static/image/ProgressiveWebApps.png" type="image/x-icon" />
+  <link rel="apple-touch-icon" id="applogo" href="./static/image/ProgressiveWebApps.png">
   <link href="./static/css/LanguageDetection.css" rel="stylesheet" type="text/css">
   <link href="./files/css/bootstrap.min.css" rel="stylesheet">
   <script src="./files/js/bootstrap.bundle.min.js"></script>
   <script src="./files/js/jquery.min.js"></script>
 </head>
 
-<body>
+<body onLoad="init()" oncontextmenu=self.event.returnValue=false>
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container">
       <a class="navbar-brand" href="./" data-i18n="navbar-brand">NAVBER-BRAND-I18N</a>

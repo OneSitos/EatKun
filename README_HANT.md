@@ -1,5 +1,5 @@
 <p align="center">
-  <a href="https://chicxk.pages.dev/"><img src="static/image/ClickBefore.png" width="100" height="100" alt="吃掉蔡徐坤"></a>
+  <a href="https://chicxk.pages.dev/"><img src="static/image/ProgressiveWebApps.png" width="100" height="100" alt="吃掉蔡徐坤"></a>
 </p>
 <div align="center">
 
@@ -80,7 +80,7 @@ _🦌 網頁小遊戲 🥛_
 
 你可以隨意更改右側文字，就可以顯示你想要的內容，**不要刪掉雙引號**！
 
-3. 找到`static/image`資料夾，點擊前顯示的圖片是`ClickBefore.png`，點擊後的圖片是`ClickAfter.png`，把它們改成你想要的即可。
+3. 找到`static/image`資料夾，點擊前顯示的圖片是`ClickBefore.png`，點擊後的圖片是`ClickAfter.png`，網站顯示的圖示為`ProgressiveWebApps.png`，把它們改成你想要的即可。
 
    **注意檔案格式，需要是png**
 

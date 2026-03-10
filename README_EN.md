@@ -1,5 +1,5 @@
 <p align="center">
-  <a href="https://chicxk.pages.dev/"><img src="static/image/ClickBefore.png" width="100" height="100" alt="EatKun"></a>
+  <a href="https://chicxk.pages.dev/"><img src="static/image/ProgressiveWebApps.png" width="100" height="100" alt="EatKun"></a>
 </p>
 <div align="center">
 
@@ -78,7 +78,7 @@ Follow these steps to change the text displayed to what you want.
 
    You can change the text on the right side. **Note that don't remove quotes(i.e. `"`)**
 
-3. Go to directory `static/image`. The image shown before clicking is `ClickBefore.png`, and after is `ClickAfter.png`.
+3. Go to directory `static/image`. The image shown before clicking is `ClickBefore.png`, after is `ClickAfter.png`, and the icon displayed on the website is `ProgressiveWebApps.png`.
 
    **The file type must be png**
 

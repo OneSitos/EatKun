@@ -7,14 +7,15 @@
     <meta itemprop="description" content="新概念音游" />
     <meta charset="utf-8" />
     <meta name="viewport" content="initial-scale=1, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0, width=device-width,target-densitydpi=device-dpi" />
-    <link rel="icon" href="./static/image/ClickBefore.png" type="image/x-icon" />
-    <link rel="apple-touch-icon" id="applogo" href="./static/image/ClickBefore.png">
+    <link rel="icon" href="./static/image/ProgressiveWebApps.png" type="image/x-icon" />
+    <link rel="apple-touch-icon" id="applogo" href="./static/image/ProgressiveWebApps.png">
     <link href="./static/index.css" rel="stylesheet" type="text/css">
     <script src="./files/js/createjs.min.js"></script>
     <script src="./files/js/jsencrypt.min.js"></script>
     <link href="./files/css/bootstrap.min.css" rel="stylesheet">
     <script src="./files/js/bootstrap.bundle.min.js"></script>
     <script src="./files/js/jquery.min.js"></script>
+    <link rel="manifest" href="./static/manifest.webmanifest">
     <script src="https://pv.sohu.com/cityjson?ie=utf-8"></script>
 	<?php
     session_start();

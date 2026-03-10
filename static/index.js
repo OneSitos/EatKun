@@ -100,6 +100,13 @@ const MODE_NORMAL = 1, MODE_ENDLESS = 2, MODE_PRACTICE = 3;
         $('#c').change(function() {
             changeSoundMode();
         });
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', function() {
+                navigator.serviceWorker.register('./static/javascript/ServiceWorker.js')
+                   .then(function(registration) { console.log('ServiceWorker Registration successful: ', registration.scope); })
+                   .catch(function(err) { console.log('ServiceWorker Registration failed: ', err); });
+            });
+        }
     }
 
     function getMode() {
