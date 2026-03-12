@@ -1,7 +1,7 @@
 {
-    "name": "EatKun",
-    "short_name": "EatKun",
-    "description": "New concept audio game",
+    "name": "Eat Kun",
+    "short_name": "Eat Kun",
+    "description": "新コンセプトオーディオゲーム",
     "start_url": "../",
     "display": "standalone",
     "background_color": "#333333",

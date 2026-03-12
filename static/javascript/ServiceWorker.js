@@ -1,4 +1,4 @@
-const CACHE_NAME = 'eat-kun-pwa-ver1';
+const CACHE_NAME = 'eat-kun-pwa-ver1.1';
 const urlsToCache = [
     './',
     './index.html',
@@ -8,6 +8,10 @@ const urlsToCache = [
     './404.html',
     './static/index.js',
     './static/index.css',
+    './static/manifest.webmanifest',
+    './static/manifest_ja.webmanifest',
+    './static/manifest_zh.webmanifest',
+    './static/manifest_zht.webmanifest',
     './static/css/LanguageDetection.css',
     './static/i18n/en.json',
     './static/i18n/ja.json',
@@ -21,11 +25,11 @@ const urlsToCache = [
     './static/music/end.mp3',
     './static/music/err.mp3',
     './static/music/tap.mp3',
-    './files/css/bootstrap.min.css'
+    './files/css/bootstrap.min.css',
+    './files/js/bootstrap.bundle.min.js',
     './files/js/createjs.min.js',
     './files/js/jsencrypt.min.js',
     './files/js/jquery.min.js',
-    './files/js/bootstrap.bundle.min.js',
 ];
 
 self.addEventListener('install', event => {

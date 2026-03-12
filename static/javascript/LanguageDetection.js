@@ -47,7 +47,32 @@
 
     $('html').attr('lang', I18N['lang']);
 
+    function setupLocalizedManifest() {
+        const LANG_TO_MANIFEST = [
+            { regex: /^zh-TW\b/i, file: 'manifest_zht.webmanifest' },
+            { regex: /^zh-HK\b/i, file: 'manifest_zht.webmanifest' },
+            { regex: /^zh-MO\b/i, file: 'manifest_zht.webmanifest' },
+            { regex: /^zh-Hans\b/i, file: 'manifest_zh.webmanifest' },
+            { regex: /^zh-Hant\b/i, file: 'manifest_zht.webmanifest' },
+            { regex: /^zh\b/i, file: 'manifest_zh.webmanifest' },
+            { regex: /^ja\b/i, file: 'manifest_ja.webmanifest' },
+            { regex: /.*/, file: 'manifest.webmanifest' }
+        ];
+
+        const userLang = navigator.language || navigator.userLanguage;
+        const manifestInfo = LANG_TO_MANIFEST.find(l => l.regex.test(userLang));
+        const manifestHref = `./static/${manifestInfo.file}`;
+
+        const linkEl = document.createElement('link');
+        linkEl.rel = 'manifest';
+        linkEl.href = manifestHref;
+        document.head.appendChild(linkEl);
+
+        console.log(`PWA Manifest loaded: ${manifestHref} for language: ${userLang}`);
+    }
+
     w.init = function() {
+        setupLocalizedManifest();
         if ('serviceWorker' in navigator) {
             window.addEventListener('load', function() {
                 navigator.serviceWorker.register('./static/javascript/ServiceWorker.js')

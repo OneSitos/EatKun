@@ -36,6 +36,30 @@ const MODE_NORMAL = 1, MODE_ENDLESS = 2, MODE_PRACTICE = 3;
         }).responseJSON
     }
 
+    function setupLocalizedManifest() {
+        const LANG_TO_MANIFEST = [
+            { regex: /^zh-TW\b/i, file: 'manifest_zht.webmanifest' },
+            { regex: /^zh-HK\b/i, file: 'manifest_zht.webmanifest' },
+            { regex: /^zh-MO\b/i, file: 'manifest_zht.webmanifest' },
+            { regex: /^zh-Hans\b/i, file: 'manifest_zh.webmanifest' },
+            { regex: /^zh-Hant\b/i, file: 'manifest_zht.webmanifest' },
+            { regex: /^zh\b/i, file: 'manifest_zh.webmanifest' },
+            { regex: /^ja\b/i, file: 'manifest_ja.webmanifest' },
+            { regex: /.*/, file: 'manifest.webmanifest' }
+        ];
+
+        const userLang = navigator.language || navigator.userLanguage;
+        const manifestInfo = LANG_TO_MANIFEST.find(l => l.regex.test(userLang));
+        const manifestHref = `./static/${manifestInfo.file}`;
+
+        const linkEl = document.createElement('link');
+        linkEl.rel = 'manifest';
+        linkEl.href = manifestHref;
+        document.head.appendChild(linkEl);
+
+        console.log(`PWA Manifest loaded: ${manifestHref} for language: ${userLang}`);
+    }
+
     const I18N = getJsonI18N()
 
     $('[data-i18n]').each(function() {
@@ -77,6 +101,7 @@ const MODE_NORMAL = 1, MODE_ENDLESS = 2, MODE_PRACTICE = 3;
     let soundMode = getSoundMode();
 
     w.init = function() {
+        setupLocalizedManifest();
         showWelcomeLayer();
         body = document.getElementById('gameBody') || document.body;
         body.style.height = window.innerHeight + 'px';
@@ -263,16 +288,44 @@ const MODE_NORMAL = 1, MODE_ENDLESS = 2, MODE_PRACTICE = 3;
     }
 
     function updatePanel() {
-        if (mode === MODE_NORMAL) {
-            if (!_gameOver) {
-                GameTimeLayer.innerHTML = createTimeText(_gameTimeNum);
+        let resetTimer = null;
+        let waitingSecondClick = false; // 是否在等待第二次点击
+        GameTimeLayer.addEventListener('click', function() {
+            if (!_gameStart || !welcomeLayerClosed) {
+                return;
             }
-        } else if (mode === MODE_ENDLESS) {
-            let cps = getCPS();
-            let text = (cps === 0 ? I18N['calculating'] : cps.toFixed(2));
-            GameTimeLayer.innerHTML = `CPS:${text}`;
-        } else {
-            GameTimeLayer.innerHTML = `SCORE:${_gameScore}`;
+
+            if (!waitingSecondClick) { // 第一次点击
+                waitingSecondClick = true;
+                GameTimeLayer.innerHTML = I18N['click-again-to-home'] || '再次点击以回到主页';
+
+                resetTimer = setTimeout(function() { // 没有第二次点击时
+                    waitingSecondClick = false;
+                }, 500);
+            } else {
+                clearTimeout(resetTimer); // 第二次点击
+                waitingSecondClick = false;
+
+                if (_gameTime) {
+                    clearInterval(_gameTime);
+                    _gameTime = null;
+                }
+                backBtn();
+            }
+        });
+
+        if (!waitingSecondClick || !_gameStart || !welcomeLayerClosed) {
+            if (mode === MODE_NORMAL) {
+                if (!_gameOver) {
+                    GameTimeLayer.innerHTML = createTimeText(_gameTimeNum);
+                }
+            } else if (mode === MODE_ENDLESS) {
+                let cps = getCPS();
+                let text = (cps === 0 ? I18N['calculating'] : cps.toFixed(2));
+                GameTimeLayer.innerHTML = `CPS:${text}`;
+            } else {
+                GameTimeLayer.innerHTML = `SCORE:${_gameScore}`;
+            }
         }
     }
     // 使重试按钮获得焦点
@@ -425,7 +478,7 @@ const MODE_NORMAL = 1, MODE_ENDLESS = 2, MODE_PRACTICE = 3;
             html += '</div>';
         }
         html += '</div>';
-        html += '<div id="GameTimeLayer" class="text-center default-mouse"></div>';
+        html += '<div id="GameTimeLayer" style="cursor: pointer;" class="text-center"></div>';
         return html;
     }
 
@@ -495,16 +548,16 @@ const MODE_NORMAL = 1, MODE_ENDLESS = 2, MODE_PRACTICE = 3;
             let date2 = new Date();
             deviationTime = (date2.getTime() - _date1.getTime())
             if (!legalDeviationTime()) {
-                return I18N && I18N['time-over'] ? I18N['time-over'] : "TIME-OVER-I18N" + ((deviationTime / 1000) - _gameSettingNum).toFixed(2) + 's';
+                return I18N['time-over'] || 'TIME-OVER-I18N' + ((deviationTime / 1000) - _gameSettingNum).toFixed(2) + 's';
             }
             SubmitResults();
         }
 
-        if (cps <= 5) return I18N && I18N['text-level-1'] ? I18N['text-level-1'] : "TEXT-LEVEL-1-I18N";
-        if (cps <= 8) return I18N && I18N['text-level-2'] ? I18N['text-level-2'] : "TEXT-LEVEL-2-I18N";
-        if (cps <= 10) return I18N && I18N['text-level-3'] ? I18N['text-level-3'] : "TEXT-LEVEL-3-I18N";
-        if (cps <= 15) return I18N && I18N['text-level-4'] ? I18N['text-level-4'] : "TEXT-LEVEL-4-I18N";
-        return I18N && I18N['text-level-5'] ? I18N['text-level-5'] : "TEXT-LEVEL-5-I18N";
+        if (cps <= 5) return I18N['text-level-1'] || 'TEXT-LEVEL-1-I18N';
+        if (cps <= 8) return I18N['text-level-2'] || 'TEXT-LEVEL-2-I18N';
+        if (cps <= 10) return I18N['text-level-3'] || 'TEXT-LEVEL-3-I18N';
+        if (cps <= 15) return I18N['text-level-4'] || 'TEXT-LEVEL-4-I18N';
+        return I18N['text-level-5'] || 'TEXT-LEVEL-5-I18N';
     }
 
     function toStr(obj) {
@@ -548,7 +601,7 @@ const MODE_NORMAL = 1, MODE_ENDLESS = 2, MODE_PRACTICE = 3;
             $('title').text(cookie('title'));
             $('#title').val(cookie('title'));
         } else { // 无 cookie 直接用默认，不需要刷新
-            const defaultTitle = I18N && I18N['eat-kun'] ? I18N['eat-kun'] : "EAT-KUN-I18N";
+            const defaultTitle = I18N['eat-kun'] || 'EAT-KUN-I18N';
             $('title').text(defaultTitle);
         }
 

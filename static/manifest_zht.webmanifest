@@ -1,7 +1,7 @@
 {
-    "name": "EatKun",
-    "short_name": "EatKun",
-    "description": "New concept audio game",
+    "name": "吃掉蔡徐坤",
+    "short_name": "吃掉蔡徐坤",
+    "description": "新概念音遊",
     "start_url": "../",
     "display": "standalone",
     "background_color": "#333333",
