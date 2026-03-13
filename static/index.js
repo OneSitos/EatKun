@@ -36,6 +36,19 @@ const MODE_NORMAL = 1, MODE_ENDLESS = 2, MODE_PRACTICE = 3;
         }).responseJSON
     }
 
+    const I18N = getJsonI18N()
+
+    $('[data-i18n]').each(function() {
+        const content = I18N[this.dataset.i18n];
+        $(this).text(content);
+    });
+
+    $('[data-placeholder-i18n]').each(function() {
+        $(this).attr('placeholder', I18N[this.dataset.placeholderI18n]);
+    });
+
+    $('html').attr('lang', I18N['lang']);
+
     function setupLocalizedManifest() {
         const LANG_TO_MANIFEST = [
             { regex: /^zh-TW\b/i, file: 'manifest_zht.webmanifest' },
@@ -56,22 +69,7 @@ const MODE_NORMAL = 1, MODE_ENDLESS = 2, MODE_PRACTICE = 3;
         linkEl.rel = 'manifest';
         linkEl.href = manifestHref;
         document.head.appendChild(linkEl);
-
-        console.log(`PWA Manifest loaded: ${manifestHref} for language: ${userLang}`);
     }
-
-    const I18N = getJsonI18N()
-
-    $('[data-i18n]').each(function() {
-        const content = I18N[this.dataset.i18n];
-        $(this).text(content);
-    });
-
-    $('[data-placeholder-i18n]').each(function() {
-        $(this).attr('placeholder', I18N[this.dataset.placeholderI18n]);
-    });
-
-    $('html').attr('lang', I18N['lang']);
 
     let isDesktop = !navigator['userAgent'].match(/(ipad|iphone|ipod|android|windows phone)/i);
     let fontunit = isDesktop ? 20 : ((window.innerWidth > window.innerHeight ? window.innerHeight : window.innerWidth) / 320) * 10;

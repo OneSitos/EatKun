@@ -34,19 +34,6 @@
         }).responseJSON
     }
 
-    const I18N = getJsonI18N()
-
-    $('[data-i18n]').each(function() {
-        const content = I18N[this.dataset.i18n];
-        $(this).text(content);
-    });
-
-    $('[data-placeholder-i18n]').each(function() {
-        $(this).attr('placeholder', I18N[this.dataset.placeholderI18n]);
-    });
-
-    $('html').attr('lang', I18N['lang']);
-
     function setupLocalizedManifest() {
         const LANG_TO_MANIFEST = [
             { regex: /^zh-TW\b/i, file: 'manifest_zht.webmanifest' },
@@ -67,9 +54,20 @@
         linkEl.rel = 'manifest';
         linkEl.href = manifestHref;
         document.head.appendChild(linkEl);
-
-        console.log(`PWA Manifest loaded: ${manifestHref} for language: ${userLang}`);
     }
+
+    const I18N = getJsonI18N()
+
+    $('[data-i18n]').each(function() {
+        const content = I18N[this.dataset.i18n];
+        $(this).text(content);
+    });
+
+    $('[data-placeholder-i18n]').each(function() {
+        $(this).attr('placeholder', I18N[this.dataset.placeholderI18n]);
+    });
+
+    $('html').attr('lang', I18N['lang']);
 
     w.init = function() {
         setupLocalizedManifest();
@@ -86,7 +84,7 @@
         if ($('#search').val()) {
             window.location.href = "?type=query&query=" + encodeURIComponent($('#search').val());
         } else {
-            const alertText = I18N && I18N['name-not-filled'] ? I18N['name-not-filled'] : "NAME-NOT-FILLED-I18N";
+            const alertText = I18N['name-not-filled'] || 'NAME-NOT-FILLED-I18N';
             alert(alertText);
         }
     }
