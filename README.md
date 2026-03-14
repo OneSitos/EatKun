@@ -14,7 +14,7 @@ _🦌 网页小游戏 🥛_
 
 小游戏：吃掉蔡徐坤
 
-最新版本号：[0.1.0](https://github.com/OneSitos/EatKun/tree/0.1.0)
+最新版本号：[0.2.0](https://github.com/OneSitos/EatKun/tree/0.2.0)
 
 [English](README_EN.md)
 |
@@ -80,7 +80,7 @@ _🦌 网页小游戏 🥛_
 
    你可以随意更改右侧文字，就可以显示你想要的内容，**不要删掉双引号**！
 
-3. 找到`static/image`文件夹，点击前显示的图片是`ClickBefore.png`, 点击后的图片是`ClickAfter.png`，网站显示的图标为`ProgressiveWebApps.png`，把他们改成你想要的即可。
+3. 找到`static/image`文件夹，点击前显示的图片是`ClickBefore.png`, 点击后的图片是`ClickAfter.png`，网站显示的图标为`ProgressiveWebApps.png`（比例必须为 1:1），把他们改成你想要的即可。
 
    **注意文件格式，需要是png**
 

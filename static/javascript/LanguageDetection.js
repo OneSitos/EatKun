@@ -34,6 +34,19 @@
         }).responseJSON
     }
 
+    const I18N = getJsonI18N()
+
+    $('[data-i18n]').each(function() {
+        const content = I18N[this.dataset.i18n];
+        $(this).text(content);
+    });
+
+    $('[data-placeholder-i18n]').each(function() {
+        $(this).attr('placeholder', I18N[this.dataset.placeholderI18n]);
+    });
+
+    $('html').attr('lang', I18N['lang']);
+
     function setupLocalizedManifest() {
         const LANG_TO_MANIFEST = [
             { regex: /^zh-TW\b/i, file: 'manifest_zht.webmanifest' },
@@ -55,19 +68,6 @@
         linkEl.href = manifestHref;
         document.head.appendChild(linkEl);
     }
-
-    const I18N = getJsonI18N()
-
-    $('[data-i18n]').each(function() {
-        const content = I18N[this.dataset.i18n];
-        $(this).text(content);
-    });
-
-    $('[data-placeholder-i18n]').each(function() {
-        $(this).attr('placeholder', I18N[this.dataset.placeholderI18n]);
-    });
-
-    $('html').attr('lang', I18N['lang']);
 
     w.init = function() {
         setupLocalizedManifest();

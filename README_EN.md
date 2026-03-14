@@ -14,7 +14,7 @@ _🦌 Web Game 🥛_
 
 A web game: EatKun
 
-Latest version: [0.1.0](https://github.com/OneSitos/EatKun/tree/0.1.0)
+Latest version: [0.2.0](https://github.com/OneSitos/EatKun/tree/0.2.0)
 
 [简体中文](README.md)
 |
@@ -78,7 +78,7 @@ Follow these steps to change the text displayed to what you want.
 
    You can change the text on the right side. **Note that don't remove quotes(i.e. `"`)**
 
-3. Go to directory `static/image`. The image shown before clicking is `ClickBefore.png`, after is `ClickAfter.png`, and the icon displayed on the website is `ProgressiveWebApps.png`.
+3. Go to directory `static/image`. The image shown before clicking is `ClickBefore.png`, after is `ClickAfter.png`, and the icon displayed on the website is `ProgressiveWebApps.png` (ratio must be 1:1).
 
    **The file type must be png**
 
