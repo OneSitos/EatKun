@@ -123,13 +123,13 @@ _🦌 網頁小遊戲 🥛_
 
 3. EatCat ([GitHub](https://github.com/Webpage-gh/eatcat) [許可證：Apache License 2.0](https://raw.githubusercontent.com/OneSitos/EatKun/refs/heads/main/files/license/github.Webpage-gh.eatcat_LICENSE.txt))
 
-4. Bootstrap v5.1.1 ([網站](https://getbootstrap.com/) [GitHub](https://github.com/twbs/bootstrap/releases/tag/v5.1.1) [許可證：MIT license](https://raw.githubusercontent.com/OneSitos/EatKun/refs/heads/main/files/license/github.twbs.bootstrap_LICENSE.txt))
+4. Bootstrap 5.1.3 ([網站](https://getbootstrap.com/) [GitHub](https://github.com/twbs/bootstrap/releases/tag/v5.1.3) [許可證：MIT license](https://raw.githubusercontent.com/OneSitos/EatKun/refs/heads/main/files/license/github.twbs.bootstrap_LICENSE.txt))
 
-5. CREATEJS v1.0.0 ([網站](http://createjs.com/) [GitHub](https://github.com/CreateJS/CreateJS) [許可證：MIT license](https://raw.githubusercontent.com/OneSitos/EatKun/refs/heads/main/files/license/github.CreateJS.CreateJS_LICENSE.txt))
+5. CREATEJS 1.0.2 ([網站](https://createjs.com/soundjs) [GitHub](https://github.com/CreateJS/SoundJS) [許可證：MIT license](https://raw.githubusercontent.com/OneSitos/EatKun/refs/heads/main/files/license/github.CreateJS.SoundJS_LICENSE.txt))
 
-6. jQuery 3.6.0 ([網站](https://jquery.com/) [GitHub](https://github.com/jquery/jquery/releases/tag/3.6.0) [許可證](https://raw.githubusercontent.com/EatKun/EatKun/refs/heads/main/files/license/github.jquery.jquery_LICENSE.txt)) 
+6. jQuery 3.7.1 ([網站](https://jquery.com/) [GitHub](https://github.com/jquery/jquery/releases/tag/3.7.1) [許可證](https://raw.githubusercontent.com/EatKun/EatKun/refs/heads/main/files/license/github.jquery.jquery_LICENSE.txt)) 
 
-7. JSEncrypt ([網站](https://travistidwell.com/jsencrypt) [GitHub](https://github.com/travist/jsencrypt) [許可證](https://raw.githubusercontent.com/OneSitos/EatKun/refs/heads/main/files/license/github.travist.jsencrypt_LICENSE.txt))
+7. JSEncrypt 3.5.4 ([網站](https://travistidwell.com/jsencrypt) [GitHub](https://github.com/travist/jsencrypt/releases/tag/v3.5.4) [許可證](https://raw.githubusercontent.com/OneSitos/EatKun/refs/heads/main/files/license/github.travist.jsencrypt_LICENSE.txt))
 
 ## Star 統計
 

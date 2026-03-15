@@ -10,7 +10,7 @@
     <link rel="icon" href="./static/image/ProgressiveWebApps.png" type="image/x-icon" />
     <link rel="apple-touch-icon" id="applogo" href="./static/image/ProgressiveWebApps.png">
     <link href="./static/index.css" rel="stylesheet" type="text/css">
-    <script src="./files/js/createjs.min.js"></script>
+    <script src="./files/js/soundjs.min.js"></script>
     <script src="./files/js/jsencrypt.min.js"></script>
     <link href="./files/css/bootstrap.min.css" rel="stylesheet">
     <script src="./files/js/bootstrap.bundle.min.js"></script>
@@ -48,7 +48,6 @@
                 <button type="button" class="btn btn-secondary btn-lg" onclick="openWebpage('https://github.com/OneSitos/EatKun/blob/main/README_EN.md#used-items-and-their-licenses')" data-i18n="use-project">USE-PROJECT-I18N</button>
                 <button type="button" class="btn btn-secondary btn-lg" onclick="openWebpage('https://github.com/OneSitos/EatKun/wiki#disclaimer')" data-i18n="disclaimer">DISCLAIMER-I18N</button>
             </div>
-    </div>
     </div>
     <div id="welcome" class="SHADE BOX-M">
         <div class="welcome-bg FILL"></div>
