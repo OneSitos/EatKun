@@ -125,7 +125,7 @@ _🦌 網頁小遊戲 🥛_
 
 4. Bootstrap 5.1.3 ([網站](https://getbootstrap.com/) [GitHub](https://github.com/twbs/bootstrap/releases/tag/v5.1.3) [許可證：MIT license](https://raw.githubusercontent.com/OneSitos/EatKun/refs/heads/main/files/license/github.twbs.bootstrap_LICENSE.txt))
 
-5. CREATEJS 1.0.2 ([網站](https://createjs.com/soundjs) [GitHub](https://github.com/CreateJS/SoundJS) [許可證：MIT license](https://raw.githubusercontent.com/OneSitos/EatKun/refs/heads/main/files/license/github.CreateJS.SoundJS_LICENSE.txt))
+5. SoundJS 1.0.2 ([網站](https://createjs.com/soundjs) [GitHub](https://github.com/CreateJS/SoundJS) [許可證：MIT license](https://raw.githubusercontent.com/OneSitos/EatKun/refs/heads/main/files/license/github.CreateJS.SoundJS_LICENSE.txt))
 
 6. jQuery 3.7.1 ([網站](https://jquery.com/) [GitHub](https://github.com/jquery/jquery/releases/tag/3.7.1) [許可證](https://raw.githubusercontent.com/EatKun/EatKun/refs/heads/main/files/license/github.jquery.jquery_LICENSE.txt)) 
 

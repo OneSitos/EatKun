@@ -1,0 +1,11 @@
+/LICENSE-code
+  Content-Type: text/plain
+
+/LICENSE-text
+  Content-Type: text/plain
+
+/*.php
+  Content-Type: application/x-httpd-php
+
+/*.sql
+  Content-Type: text/x-sql

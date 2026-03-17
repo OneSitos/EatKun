@@ -29,7 +29,7 @@ const urlsToCache = [
     './files/js/bootstrap.bundle.min.js',
     './files/js/createjs.min.js',
     './files/js/jsencrypt.min.js',
-    './files/js/jquery.min.js',
+    './files/js/jquery.min.js'
 ];
 
 self.addEventListener('install', event => {

@@ -123,7 +123,7 @@ Follow these few steps to configure the database for ranking list on your server
 
 4. Bootstrap 5.1.3 ([Website](https://getbootstrap.com/) [GitHub](https://github.com/twbs/bootstrap/releases/tag/v5.1.3) [License: MIT license](https://raw.githubusercontent.com/OneSitos/EatKun/refs/heads/main/files/license/github.twbs.bootstrap_LICENSE.txt))
 
-5. CREATEJS 1.0.2 ([Website](https://createjs.com/soundjs) [GitHub](https://github.com/CreateJS/SoundJS) [License: MIT license](https://raw.githubusercontent.com/OneSitos/EatKun/refs/heads/main/files/license/github.CreateJS.SoundJS_LICENSE.txt))
+5. SoundJS 1.0.2 ([Website](https://createjs.com/soundjs) [GitHub](https://github.com/CreateJS/SoundJS) [License: MIT license](https://raw.githubusercontent.com/OneSitos/EatKun/refs/heads/main/files/license/github.CreateJS.SoundJS_LICENSE.txt))
 
 6. jQuery 3.7.1 ([Website](https://jquery.com/) [GitHub](https://github.com/jquery/jquery/releases/tag/3.7.1) [License](https://raw.githubusercontent.com/OneSitos/EatKun/refs/heads/main/files/license/github.jquery.jquery_LICENSE.txt))
 
