@@ -9,3 +9,27 @@
 
 /*.sql
   Content-Type: text/x-sql
+
+/*.webmanifest
+  Content-Type: application/manifest+json
+
+/*.html
+  Content-Type: text/html
+
+/*.md
+  Content-Type: text/markdown
+
+/*.js
+  Content-Type: application/javascript
+
+/*.json
+  Content-Type: application/json
+
+/*.css
+  Content-Type: text/css
+
+/*.png
+  Content-Type: image/png
+
+/*.mp3
+  Content-Type: audio/mpeg

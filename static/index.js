@@ -295,7 +295,7 @@ const MODE_NORMAL = 1, MODE_ENDLESS = 2, MODE_PRACTICE = 3;
 
             if (!waitingSecondClick) { // 第一次点击
                 waitingSecondClick = true;
-                GameTimeLayer.innerHTML = I18N['click-again-to-home'] || '再次点击以回到主页';
+                GameTimeLayer.innerHTML = I18N['click-again-to-home'] || 'CLICK-AGAIN-TO-GAME-I18N';
 
                 resetTimer = setTimeout(function() { // 没有第二次点击时
                     waitingSecondClick = false;
