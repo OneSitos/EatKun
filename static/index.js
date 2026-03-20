@@ -226,6 +226,7 @@ const MODE_NORMAL = 1, MODE_ENDLESS = 2, MODE_PRACTICE = 3;
     let _gameStartTime, _gameStartDatetime;
 
     function gameInit() {
+        createjs.Sound.registerPlugins([createjs.WebAudioPlugin, createjs.HTMLAudioPlugin, createjs.FlashPlugin]);
         createjs.Sound.registerSound({
             src: "./static/music/err.mp3",
             id: "err"

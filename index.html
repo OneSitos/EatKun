@@ -11,6 +11,7 @@
     <link rel="apple-touch-icon" id="applogo" href="./static/image/ProgressiveWebApps.png">
     <link href="./static/index.css" rel="stylesheet" type="text/css">
     <script src="./files/js/soundjs.min.js"></script>
+    <script src="./files/js/flashaudioplugin.min.js"></script>
     <script src="./files/js/jsencrypt.min.js"></script>
     <link href="./files/css/bootstrap.min.css" rel="stylesheet">
     <script src="./files/js/bootstrap.bundle.min.js"></script>
@@ -78,7 +79,7 @@
                     <a data-i18n="img-before" type="button" class="btn text-nowrap btn-secondary me-1" onclick="getClickBeforeImage()" style="left: 0">IMG-BEFORE-I18N</a>
                     <input type="file" id="click-before-image" accept="image/*" class="d-none" onchange="saveClickBeforeImage()">
                     <a data-i18n="img-after" type="button" class="btn text-nowrap btn-secondary me-1" onclick="getClickAfterImage()" style="right: 0">IMG-AFTER-I18N</a>
-                    <input type="file" id="click-after-image" accept="image/*" style="display: none;" onchange="saveClickAfterImage()">
+                    <input type="file" id="click-after-image" accept="image/*" class="d-none" onchange="saveClickAfterImage()">
                     <div class="input-group-prepend">
                         <span class="input-group-text" data-i18n="sound">SOUND-I18N</span>
                     </div>
