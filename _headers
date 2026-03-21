@@ -33,3 +33,6 @@
 
 /*.mp3
   Content-Type: audio/mpeg
+
+/*.swf
+  Content-Type: application/x-shockwave-flash
