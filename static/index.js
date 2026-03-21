@@ -290,7 +290,7 @@ const MODE_NORMAL = 1, MODE_ENDLESS = 2, MODE_PRACTICE = 3;
         let resetTimer = null;
         let waitingSecondClick = false; // 是否在等待第二次点击
         GameTimeLayer.addEventListener('click', function() {
-            if (!_gameStart || !welcomeLayerClosed) {
+            if (_gameOver) {
                 return;
             }
 
@@ -300,6 +300,7 @@ const MODE_NORMAL = 1, MODE_ENDLESS = 2, MODE_PRACTICE = 3;
 
                 resetTimer = setTimeout(function() { // 没有第二次点击时
                     waitingSecondClick = false;
+                    updatePanel();
                 }, 500);
             } else {
                 clearTimeout(resetTimer); // 第二次点击
@@ -313,7 +314,7 @@ const MODE_NORMAL = 1, MODE_ENDLESS = 2, MODE_PRACTICE = 3;
             }
         });
 
-        if (!waitingSecondClick || !_gameStart || !welcomeLayerClosed) {
+        if (!waitingSecondClick) {
             if (mode === MODE_NORMAL) {
                 if (!_gameOver) {
                     GameTimeLayer.innerHTML = createTimeText(_gameTimeNum);
@@ -335,6 +336,9 @@ const MODE_NORMAL = 1, MODE_ENDLESS = 2, MODE_PRACTICE = 3;
     function gameOver() {
         _gameOver = true;
         clearInterval(_gameTime);
+        let timeLayer = document.getElementById('GameTimeLayer');
+        timeLayer.removeAttribute('style');
+        timeLayer.classList.add('default-mouse');
         let cps = getCPS();
         updatePanel();
         setTimeout(function () {
@@ -533,6 +537,9 @@ const MODE_NORMAL = 1, MODE_ENDLESS = 2, MODE_PRACTICE = 3;
 
     w.replayBtn = function() {
         createjs.Sound.stop();
+        let timeLayer = document.getElementById('GameTimeLayer');
+        timeLayer.style.cursor = 'pointer';
+        timeLayer.classList.remove('default-mouse');
         gameRestart();
         hideGameScoreLayer();
     }
