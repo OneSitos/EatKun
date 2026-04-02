@@ -200,7 +200,9 @@ body {
 * {
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
     -ms-tap-highlight-color: rgba(0, 0, 0, 0);
+    -webkit-user-select: none;
     -ms-user-select: none;
+    user-select: none;
 }
 
 #GameScoreLayer {

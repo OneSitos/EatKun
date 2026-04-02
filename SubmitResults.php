@@ -4,7 +4,7 @@ define('TIME_LIMIT', 5);
 $time = time();
 if (isset($_SESSION['time'])) {
     if ($time - $_SESSION['time'] <= TIME_LIMIT) {
-        echo 'Only 1 upload in 5 seconds';
+        error_log("Only 1 upload in 5 seconds");
         exit();
     }
 }
@@ -18,8 +18,7 @@ $privateKey = (string) "-----BEGIN PRIVATE KEY-----\n" . $key_eol . "\n-----END 
 $arr = explode('|_|', $decrypted);
 
 if (count($arr) < 4) {
-    error_log("SR error: Insufficient data in decryspted field! Data: " . $decrypted);
-    echo 'Data Format Error';
+    error_log("Data Format Error: Insufficient data in decryspted field! Data: " . $decrypted);
     exit();
 }
 
