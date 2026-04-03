@@ -34,12 +34,38 @@ Latest version: [0.2.1](https://github.com/OneSitos/EatKun/tree/0.2.1)
 
 A simple ranking list (day/week/month) is provided.
 
-You can delete all the sql/php files if you don't need them.
+You can delete all the `sql/php` files if you don't need them.
 
 ## Requirements
 
-+ MySQL 5+
-+ PHP 5+
+### Backend
+
+The following environment support is required when enabling leaderboards:
+
++ MySQL 5.5.3+
++ PHP 5.2.0+
+
+And install additional extensions for PHP:
+
++ MySQLi
++ OpenSSL
+
+### Front-end
+
+#### PC version
+
++ Chrome 60+
++ Edge 12+ / 79+
++ Firefox 60+
++ Safari 12+
+
+#### Mobile version
+
++ Chrome Android 60+
++ Firefox for Android 60+
++ Safari on iOS 12+
++ WebView Android API26+
++ WebView on iOS 12+
 
 ## Disclaimer
 
@@ -80,11 +106,11 @@ Follow these steps to change the text displayed to what you want.
 
 3. Go to directory `static/image`. The image shown before clicking is `ClickBefore.png`, after is `ClickAfter.png`, and the icon displayed on the website is `ProgressiveWebApps.png` (ratio must be 1:1).
 
-   **The file type must be png**
+   **The file type must be `png`.**
 
 4. Go to directory `static/music`. The sound played when tapping is `tap.mp3`, when ending without errors is `end.mp3`, while ending with errors is `err.mp3`.
 
-   **The file type must be mp3**
+   **The file type must be `mp3`.**
 
 5. After changing all resources to your own, go to repository `Settings` -> `Pages` -> `Source`, choose `main` branch and click `Save`.
 
@@ -106,7 +132,7 @@ Follow these few steps to configure the database for ranking list on your server
    <?php
    // Change this to your own configuration
    $link = new mysqli('localhost','NAME','PASSWORD','kun');
-   mysqli_set_charset($link, 'utf8');
+   mysqli_set_charset($link, 'utf8mb4');
    if ($link->connect_error) {
        die("Failed to connect: " . $conn->connect_error);
    }

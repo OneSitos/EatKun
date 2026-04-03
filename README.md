@@ -34,12 +34,38 @@ _🦌 网页小游戏 🥛_
 
 简易排行榜（日/周/月）不推荐使用。
 
-不需要排行榜把 php/sql 文件都删掉即可。
+不需要排行榜把 `php/sql` 文件都删掉即可。
 
 ## 版本需求
 
-+ MySQL 5+
-+ PHP 5+
+### 后端
+
+启用排行榜时需要以下环境支持：
+
++ MySQL 5.5.3+
++ PHP 5.2.0+
+
+并为 PHP 安装额外扩展：
+
++ MySQLi
++ OpenSSL
+
+### 前端
+
+#### PC 端
+
++ Chrome 60+
++ Edge 12+ / 79+
++ Firefox 60+
++ Safari 12+
+
+#### 移动端
+
++ Chrome Android 60+
++ Firefox for Android 60+
++ Safari on iOS 12+
++ WebView Android API26+
++ WebView on iOS 12+
 
 ## 免责声明
 
@@ -82,11 +108,11 @@ _🦌 网页小游戏 🥛_
 
 3. 找到`static/image`文件夹，点击前显示的图片是`ClickBefore.png`, 点击后的图片是`ClickAfter.png`，网站显示的图标为`ProgressiveWebApps.png`（比例必须为 1:1），把他们改成你想要的即可。
 
-   **注意文件格式，需要是png**
+   **注意文件格式，需要是 `png`。**
 
 4. 找到`static/music`文件夹，点击时的音效是`tap.mp3`，正常结束的音效是`end.mp3`，点击错误的音效是`err.mp3`，把他们改成你想要的即可。
 
-   **注意文件格式，需要是mp3**
+   **注意文件格式，需要是 `mp3`。**
 
 5. 更改完毕后前往项目的`Settings` -> `Pages` -> `Source`，选择`main` 分支然后点击`Save`。
 
@@ -108,7 +134,7 @@ _🦌 网页小游戏 🥛_
    <?php
    // 把这里改为你的配置
    $link = new mysqli('localhost','NAME','PASSWORD','kun');
-   mysqli_set_charset($link, 'utf8');
+   mysqli_set_charset($link, 'utf8mb4');
    if ($link->connect_error) {
        die("Failed to connect: " . $conn->connect_error);
    }
