@@ -113,10 +113,17 @@ if ($RankingType == 'all') {
         if ($data_stmt->num_rows > 0) {
           while ($data_stmt->fetch()) {
             $rank += 1;
+            $safeName = htmlspecialchars($name, ENT_QUOTES, 'UTF-8');
+            $safeMessage = htmlspecialchars($message ? $message : $i18n['no-message'], ENT_QUOTES, 'UTF-8');
+            $safeSystem = htmlspecialchars($system, ENT_QUOTES, 'UTF-8');
+            $safeArea = htmlspecialchars($area, ENT_QUOTES, 'UTF-8');
+            $safeScore = htmlspecialchars($score, ENT_QUOTES, 'UTF-8');
+            $safeAttempts = htmlspecialchars($attempts, ENT_QUOTES, 'UTF-8');
+            $safeTime = htmlspecialchars($time, ENT_QUOTES, 'UTF-8');
             echo "<a href='#' class='list-group-item list-group-item-action'><div class='d-flex w-100 justify-content-between'>
-            <h5 class='mb-1'>" . (($rank == 1 || $rank % 10 == 1) ? ($rank . "st ") : (($rank == 2 || $rank % 10 == 2) ? ($rank . "rd ") : ($rank . "th "))) . $name . "</h5><small>" . $time . "</small></div>
-            <p class='mb-1'>SCORE: " . $score . " TRY: " . $attempts . " -" . $system . " -" . $area . "</p>
-            <small>" . ($message ? $message : $i18n['no-message']) . "</small></a>";
+            <h5 class='mb-1'>" . (($rank == 1 || $rank % 10 == 1) ? ($rank . "st ") : (($rank == 2 || $rank % 10 == 2) ? ($rank . "rd ") : ($rank . "th "))) . $safeName . "</h5><small>" . $safeTime . "</small></div>
+            <p class='mb-1'>SCORE: " . $safeScore . " TRY: " . $safeAttempts . " -" . $safeSystem . " -" . $safeArea . "</p>
+            <small>" . ($safeMessage ? $safeMessage : $i18n['no-message']) . "</small></a>";
           }
         } else {
           echo "<br/><br/><p class='text-center default-mouse' data-i18n='no-data'>NO-DATA-I18N</p>";
@@ -128,9 +135,15 @@ if ($RankingType == 'all') {
         <ul class="pagination">
           <?php
           if ($RankingType != "query") {
-            $rows_sql = "SELECT count(*) FROM " . $ranking . " " . $cond1 . ";";
-            $rows_data = mysqli_query($link, $rows_sql);
-            $rows = mysqli_fetch_row($rows_data)[0];
+          $rows_sql = "SELECT count(*) FROM " . $ranking . " " . $cond1 . ";";
+          if ($count_stmt = $link->prepare($rows_sql)) {
+            $count_stmt->execute();
+            $count_stmt->bind_result($rows);
+            $count_stmt->fetch();
+            $count_stmt->close();
+          } else {
+            $rows = 0;
+          }
             $rows = $rows > $num * $max_pages ? $num * $max_pages : $rows;
             $total = ceil($rows / $num);
             if ($total > 1) {
@@ -154,6 +167,7 @@ if ($RankingType == 'all') {
         <div class="default-mouse" style='padding:0.2em 1em;'>
           <?php
           if (isset($_SESSION['name'])) {
+            $safeName = htmlspecialchars($_SESSION['name'], ENT_QUOTES, 'UTF-8');
             //Query current user history
             $score_sql = "SELECT `score`,`time`,`attempts` FROM " . $ranking . " where name=?";
             $score_stmt = $link->prepare($score_sql);
@@ -161,9 +175,12 @@ if ($RankingType == 'all') {
             $score_stmt->bind_result($score, $time, $attempts);
             $score_stmt->execute();
             if ($score_stmt->fetch()) {
-              echo strtr($i18n["self-record"], array("{name}" => $_SESSION['name'], "{attempts}" => $attempts, "{score}" => $score, "{time}" => $time));
+              $safeScore = htmlspecialchars($score, ENT_QUOTES, 'UTF-8');
+              $safeTime = htmlspecialchars($time, ENT_QUOTES, 'UTF-8');
+              $safeAttempts = htmlspecialchars($attempts, ENT_QUOTES, 'UTF-8');
+              echo strtr($i18n["self-record"], array("{name}" => $safeName, "{attempts}" => $safeAttempts, "{score}" => $safeScore, "{time}" => $safeTime));
             } else {
-              echo strtr($i18n["no-self-record"], array("{name}" => $_SESSION['name']));
+              echo strtr($i18n["no-self-record"], array("{name}" => $safeName));
             }
             $score_stmt->close();
           } else {

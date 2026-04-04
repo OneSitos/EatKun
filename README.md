@@ -42,8 +42,8 @@ _🦌 网页小游戏 🥛_
 
 启用排行榜时需要以下环境支持：
 
-+ MySQL 5.5.3+
-+ PHP 5.2.0+
++ [MySQL](https://dev.mysql.com/downloads/mysql/) 5.5.3+
++ [PHP](https://www.php.net/downloads.php) 5.2.0+
 
 并为 PHP 安装额外扩展：
 
@@ -54,18 +54,18 @@ _🦌 网页小游戏 🥛_
 
 #### PC 端
 
-+ Chrome 60+
-+ Edge 12+ / 79+
-+ Firefox 60+
-+ Safari 12+
++ [Chrome](https://www.google.com/chrome/) 60+
++ [Edge](https://www.microsoft.com/edge/) 12+ / 79+
++ [Firefox](https://www.firefox.com/) 60+
++ [Safari](https://www.apple.com/safari/) 12+
 
 #### 移动端
 
-+ Chrome Android 60+
-+ Firefox for Android 60+
-+ Safari on iOS 12+
-+ WebView Android API26+
-+ WebView on iOS 12+
++ [Chrome Android](https://play.google.com/store/apps/details?id=com.android.chrome) 60+
++ [Firefox for Android](https://play.google.com/store/apps/details?id=org.mozilla.firefox) 60+
++ [Safari](https://www.apple.com/safari/) on iOS 12+
++ [WebView Android](https://play.google.com/store/apps/details?id=com.google.android.webview) API26+
++ [WebView on iOS](https://developer.apple.com/documentation/webkit/wkwebview) 12+
 
 ## 免责声明
 
@@ -139,6 +139,22 @@ _🦌 网页小游戏 🥛_
        die("Failed to connect: " . $conn->connect_error);
    }
    $ranking = "kun_rank";
+   ```
+
+3. 如果需要在生产环境中应用，那么更改有私钥的`SubmitResults.php`为你生成的私钥：
+
+   ```php
+   <?php
+   ...
+   // 把这里改为你的配置
+   $encryptString = file_get_contents("php://input");
+   $decrypted = '';
+   $key       = "你的私钥";
+   $key_eol   = (string) implode("\n", str_split((string) $key, 64));
+   $privateKey = (string) "-----BEGIN PRIVATE KEY-----\n" . $key_eol . "\n-----END PRIVATE KEY-----";
+   @openssl_private_decrypt(base64_decode($encryptString), $decrypted, $privateKey);
+   $arr = explode('|_|', $decrypted);
+   ...
    ```
 
 ## 使用的项目及其许可证

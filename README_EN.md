@@ -42,8 +42,8 @@ You can delete all the `sql/php` files if you don't need them.
 
 The following environment support is required when enabling leaderboards:
 
-+ MySQL 5.5.3+
-+ PHP 5.2.0+
++ [MySQL](https://dev.mysql.com/downloads/mysql/) 5.5.3+
++ [PHP](https://www.php.net/downloads.php) 5.2.0+
 
 And install additional extensions for PHP:
 
@@ -54,18 +54,18 @@ And install additional extensions for PHP:
 
 #### PC version
 
-+ Chrome 60+
-+ Edge 12+ / 79+
-+ Firefox 60+
-+ Safari 12+
++ [Chrome](https://www.google.com/chrome/) 60+
++ [Edge](https://www.microsoft.com/edge/) 12+ / 79+
++ [Firefox](https://www.firefox.com/) 60+
++ [Safari](https://www.apple.com/safari/) 12+
 
 #### Mobile version
 
-+ Chrome Android 60+
-+ Firefox for Android 60+
-+ Safari on iOS 12+
-+ WebView Android API26+
-+ WebView on iOS 12+
++ [Chrome Android](https://play.google.com/store/apps/details?id=com.android.chrome) 60+
++ [Firefox for Android](https://play.google.com/store/apps/details?id=org.mozilla.firefox) 60+
++ [Safari](https://www.apple.com/safari/) on iOS 12+
++ [WebView Android](https://play.google.com/store/apps/details?id=com.google.android.webview) API26+
++ [WebView on iOS](https://developer.apple.com/documentation/webkit/wkwebview) 12+
 
 ## Disclaimer
 
@@ -137,6 +137,22 @@ Follow these few steps to configure the database for ranking list on your server
        die("Failed to connect: " . $conn->connect_error);
    }
    $ranking = "kun_rank";
+   ```
+
+3. If you intend to deploy this in a production environment, Change the code in `SubmitResults.php`, which contains your private key, and its content is here:
+
+   ```php
+   <?php
+   ...
+   // Change this to your own configuration
+   $encryptString = file_get_contents("php://input");
+   $decrypted = '';
+   $key       = "ur private key";
+   $key_eol   = (string) implode("\n", str_split((string) $key, 64));
+   $privateKey = (string) "-----BEGIN PRIVATE KEY-----\n" . $key_eol . "\n-----END PRIVATE KEY-----";
+   @openssl_private_decrypt(base64_decode($encryptString), $decrypted, $privateKey);
+   $arr = explode('|_|', $decrypted);
+   ...
    ```
 
 ## Used items and their licenses
