@@ -36,3 +36,6 @@
 
 /*.swf
   Content-Type: application/x-shockwave-flash
+
+/*.gitignore
+  Content-Type: text/plain
