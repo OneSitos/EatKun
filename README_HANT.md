@@ -14,7 +14,7 @@ _🦌 網頁小遊戲 🥛_
 
 小遊戲：吃掉蔡徐坤
 
-最新版本號：[0.2.1](https://github.com/OneSitos/EatKun/tree/0.2.1)
+最新版本號：[0.2.2](https://github.com/OneSitos/EatKun/tree/0.2.2)
 
 [English](README_EN.md)
 |
