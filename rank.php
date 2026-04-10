@@ -47,7 +47,7 @@ if ($RankingType == 'all') {
 <html>
 
 <head>
-  <title data-i18n="rank-title">RANK-TITLE-I18N</title>
+  <title data-i18n="rank-title">EatKun Ranking</title>
   <meta item="description" content="EatKun" />
   <meta charset="utf-8" />
   <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1.0" />

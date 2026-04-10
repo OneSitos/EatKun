@@ -1,10 +1,18 @@
+<?php
+$lang = substr($_SERVER['HTTP_ACCEPT_LANGUAGE'], 0, 2);
+// non-existent default en
+$lang_file = file_exists('static/i18n/' . $lang . '.json') ? "static/i18n/" . $lang . ".json" : "static/i18n/en.json";
+$lang_data = file_get_contents($lang_file);
+$i18n = json_decode($lang_data, true);
+?>
+
 <!DOCTYPE html>
 <html>
 
 <head>
-    <title data-i18n="eat-kun">EAT-KUN-I18N</title>
-    <meta itemprop="name" content="吃掉蔡徐坤" />
-    <meta itemprop="description" content="新概念音游" />
+    <title data-i18n="eat-kun">EatKun</title>
+    <meta itemprop="name" content="EatKun" />
+    <meta itemprop="description" content="New concept audio game" />
     <meta charset="utf-8" />
     <meta name="viewport" content="initial-scale=1, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0, width=device-width,target-densitydpi=device-dpi" />
     <link rel="icon" href="./static/image/ProgressiveWebApps.png" type="image/x-icon" />
@@ -55,7 +63,7 @@
         <div class="FILL BOX-M" style="position:absolute;top:0;left:0;right:0;bottom:0;z-index:5;">
             <div class="container">
                 <div class="container mb-5 default-mouse">
-                    <div style="font-size:2.6em; color:#FEF002;" data-i18n="game-title">GAME-TITLE-I18N</div><br />
+                    <div style="font-size:2.6em; color:#FEF002;" data-i18n="game-title"><?php echo $i18n['enable-javascript']; ?></div><br />
                     <div id="desc" style="display: block;font-size:2.2em; color:#fff; line-height:1.5em;">
                         <span data-i18n="game-intro1">GAME-INTRO1-I18N</span><br />
                         <span data-i18n="game-intro2">GAME-INTRO2-I18N</span><br />
