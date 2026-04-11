@@ -1,11 +1,51 @@
 <?php
-$lang = substr($_SERVER['HTTP_ACCEPT_LANGUAGE'], 0, 2);
-// non-existent default en
-$lang_file = file_exists('static/i18n/' . $lang . '.json') ? "static/i18n/" . $lang . ".json" : "static/i18n/en.json";
-$lang_data = file_get_contents($lang_file);
-$i18n = json_decode($lang_data, true);
-?>
+$accept_language = '';
+if (isset($_SERVER['HTTP_ACCEPT_LANGUAGE'])) {
+    $accept_language = $_SERVER['HTTP_ACCEPT_LANGUAGE'];
+}
 
+$language_rules = array(
+    array('regex' => '/^zh-TW\b/i', 'lang' => 'zht'),
+    array('regex' => '/^zh-HK\b/i', 'lang' => 'zht'),
+    array('regex' => '/^zh-MO\b/i', 'lang' => 'zht'),
+    array('regex' => '/^zh-Hans\b/i', 'lang' => 'zh'),
+    array('regex' => '/^zh-Hant\b/i', 'lang' => 'zht'),
+    array('regex' => '/^zh\b/i', 'lang' => 'zh'),
+    array('regex' => '/^ja\b/i', 'lang' => 'ja'),
+    array('regex' => '/.*/', 'lang' => 'en')
+);
+
+$lang_code = 'en';
+
+if (!empty($accept_language)) {
+    $langs = explode(',', $accept_language);
+    $primary_lang = trim($langs[0]);
+    $primary_lang = preg_replace('/;q=[0-9.]+$/', '', $primary_lang);
+    
+    foreach ($language_rules as $rule) {
+        if (preg_match($rule['regex'], $primary_lang)) {
+            $lang_code = $rule['lang'];
+            break;
+        }
+    }
+}
+
+$lang_file = "static/i18n/" . $lang_code . ".json";
+
+if (!file_exists($lang_file)) {
+    $lang_file = "static/i18n/en.json";
+}
+
+$lang_data = file_get_contents($lang_file);
+if ($lang_data === FALSE) {
+    $lang_data = '{}';
+}
+
+$i18n = json_decode($lang_data, true);
+if ($i18n === NULL) {
+    $i18n = array();
+}
+?>
 <!DOCTYPE html>
 <html>
 

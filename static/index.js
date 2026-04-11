@@ -73,11 +73,22 @@ const MODE_NORMAL = 1, MODE_ENDLESS = 2, MODE_PRACTICE = 3;
 
     let isDesktop = !navigator['userAgent'].match(/(ipad|iphone|ipod|android|windows phone)/i);
     let fontunit = isDesktop ? 20 : ((window.innerWidth > window.innerHeight ? window.innerHeight : window.innerWidth) / 320) * 10;
-    document.write('<style type="text/css">' +
-        'html,body {font-size:' + (fontunit < 30 ? fontunit : '30') + 'px;}' +
-        (isDesktop ? '#welcome,#GameTimeLayer,#GameLayerBG,#GameScoreLayer.SHADE{position: absolute;}' :
-            '#welcome,#GameTimeLayer,#GameLayerBG,#GameScoreLayer.SHADE{position:fixed;}@media screen and (orientation:landscape) {#landscape {display: box; display: -webkit-box; display: -moz-box; display: -ms-flexbox;}}') +
-        '</style>');
+
+    const styleEl = document.createElement('style');
+    styleEl.type = 'text/css';
+
+    const styleText = 'html,body {font-size:' + (fontunit < 30 ? fontunit : '30') + 'px;}' +
+        (isDesktop ? 
+            '#welcome,#GameTimeLayer,#GameLayerBG,#GameScoreLayer.SHADE{position: absolute;}' :
+            '#welcome,#GameTimeLayer,#GameLayerBG,#GameScoreLayer.SHADE{position:fixed;}@media screen and (orientation:landscape) {#landscape {display: box; display: -webkit-box; display: -moz-box; display: -ms-flexbox;}}'
+        );
+    if (styleEl.styleSheet) {
+        styleEl.styleSheet.cssText = styleText;
+    } else {
+        styleEl.appendChild(document.createTextNode(styleText));
+        }
+
+    document.head.appendChild(styleEl);
     let map = {'d': 1, 'f': 2, 'j': 3, 'k': 4};
     if (isDesktop) {
         document.write('<div id="gameBody">');
@@ -123,13 +134,15 @@ const MODE_NORMAL = 1, MODE_ENDLESS = 2, MODE_PRACTICE = 3;
         $('#c').change(function() {
             changeSoundMode();
         });
-        if ('serviceWorker' in navigator) {
-            window.addEventListener('load', function() {
-                navigator.serviceWorker.register('./static/javascript/ServiceWorker.js')
-                   .then(function(registration) { console.log('ServiceWorker Registration successful: ', registration.scope); })
-                   .catch(function(err) { console.log('ServiceWorker Registration failed: ', err); });
-            });
-        }
+
+    }
+
+    if ('serviceWorker' in navigator) {
+        window.addEventListener('load', function() {
+            navigator.serviceWorker.register('./static/javascript/ServiceWorker.js')
+               .then(function(registration) { console.log('ServiceWorker Registration successful: ', registration.scope); })
+               .catch(function(err) { console.log('ServiceWorker Registration failed: ', err); });
+        });
     }
 
     function getMode() {
@@ -348,7 +361,6 @@ const MODE_NORMAL = 1, MODE_ENDLESS = 2, MODE_PRACTICE = 3;
             foucusOnReplay();
         }, 1500);
     }
-
 
     function encrypt(text) {
         let encrypt = new JSEncrypt();

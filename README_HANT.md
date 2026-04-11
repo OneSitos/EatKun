@@ -43,7 +43,7 @@ _🦌 網頁小遊戲 🥛_
 啟用排行榜時需要以下環境支援：
 
 + [MySQL](https://dev.mysql.com/downloads/mysql/) 5.5.3+
-+ [PHP](https://www.php.net/downloads.php) 5.2.0+
++ [PHP](https://www.php.net/downloads.php) 5.3.0+
 
 並為 PHP 安裝額外擴充功能：
 
@@ -141,7 +141,7 @@ _🦌 網頁小遊戲 🥛_
    $ranking = "kun_rank";
    ```
 
-3. 如果需要在生產環境中應用，那麼更改有私鑰的`SubmitResults.php`為你產生的私鑰：
+3. （如果需要在生產環境中應用）更改有私鑰的`SubmitResults.php`為你產生的私鑰：
 
    ```php
    <?php
@@ -154,6 +154,19 @@ _🦌 網頁小遊戲 🥛_
    $privateKey = (string) "-----BEGIN PRIVATE KEY-----\n" . $key_eol . "\n-----END PRIVATE KEY-----";
    @openssl_private_decrypt(base64_decode($encryptString), $decrypted, $privateKey);
    $arr = explode('|_|', $decrypted);
+   ...
+   ```
+
+4. （如果需要在生產環境中應用）更改有公鑰的`SubmitResults.php`為你產生的公鑰：
+
+   ```js
+   ...
+   // 把這裡改為你的配置
+   function encrypt(text) {
+       let encrypt = new JSEncrypt();
+       encrypt.setPublicKey("你的公鑰");
+       return encrypt.encrypt(text);
+   }
    ...
    ```
 

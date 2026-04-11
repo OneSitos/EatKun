@@ -43,7 +43,7 @@ You can delete all the `sql/php` files if you don't need them.
 The following environment support is required when enabling leaderboards:
 
 + [MySQL](https://dev.mysql.com/downloads/mysql/) 5.5.3+
-+ [PHP](https://www.php.net/downloads.php) 5.2.0+
++ [PHP](https://www.php.net/downloads.php) 5.3.0+
 
 And install additional extensions for PHP:
 
@@ -139,7 +139,7 @@ Follow these few steps to configure the database for ranking list on your server
    $ranking = "kun_rank";
    ```
 
-3. If you intend to deploy this in a production environment, Change the code in `SubmitResults.php`, which contains your private key, and its content is here:
+3. (If you intend to deploy this in a production environment) Change the code in `SubmitResults.php`, which contains your private key, and its content is here:
 
    ```php
    <?php
@@ -152,6 +152,19 @@ Follow these few steps to configure the database for ranking list on your server
    $privateKey = (string) "-----BEGIN PRIVATE KEY-----\n" . $key_eol . "\n-----END PRIVATE KEY-----";
    @openssl_private_decrypt(base64_decode($encryptString), $decrypted, $privateKey);
    $arr = explode('|_|', $decrypted);
+   ...
+   ```
+
+4. (If you intend to deploy this in a production environment) Change the code in `index.js`, which contains your public key, and its content is here:
+
+   ```js
+   ...
+   // Change this to your own configuration
+   function encrypt(text) {
+       let encrypt = new JSEncrypt();
+       encrypt.setPublicKey("ur public key");
+       return encrypt.encrypt(text);
+   }
    ...
    ```
 
