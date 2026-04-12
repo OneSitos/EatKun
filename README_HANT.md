@@ -123,7 +123,7 @@ _🦌 網頁小遊戲 🥛_
 1. 創建資料庫並且執行提供的腳本（這裡用`kun`作為資料庫名）：
 
    ```sql
-   CREATE DATABASE kun DEFAULT CHARSET=utf8;
+   CREATE DATABASE kun DEFAULT CHARSET=utf8mb4;
    USE kun;
    SOURCE kun.sql;
    ```

@@ -123,7 +123,7 @@ _🦌 网页小游戏 🥛_
 1. 创建数据库并且执行提供的脚本（这里用`kun`作为数据库名）：
 
    ```sql
-   CREATE DATABASE kun DEFAULT CHARSET=utf8;
+   CREATE DATABASE kun DEFAULT CHARSET=utf8mb4;
    USE kun;
    SOURCE kun.sql;
    ```

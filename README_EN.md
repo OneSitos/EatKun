@@ -121,7 +121,7 @@ Follow these few steps to configure the database for ranking list on your server
 1. Create your own database and execute the script provided(e.g. use `kun` as database name):
 
    ```sql
-   CREATE DATABASE kun DEFAULT CHARSET=utf8;
+   CREATE DATABASE kun DEFAULT CHARSET=utf8mb4;
    USE kun;
    SOURCE kun.sql;
    ```
